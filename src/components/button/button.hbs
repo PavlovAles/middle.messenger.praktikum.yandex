@@ -1,9 +1,10 @@
 {{!--
 text: string
-variant: primary success danger
+variant: primary secondary success danger
 fill: solid outline link ghost
 align: left center right; center - default
 icon: check icons/icons.hbs, pass an symbol id without "-ico"
+iconLast: boolean
 asIconButton: boolean - get rounded icon button
 --}}
 
@@ -12,9 +13,12 @@ asIconButton: boolean - get rounded icon button
         mainButton_fill_{{fill}} 
         {{#if align}}mainButton_align_{{align}}{{/if}} 
         {{#if asIconButton}}mainButton_with-icon-only{{/if}} 
+        {{#if iconLast}}mainButton_icon-last{{/if}}
     ">
     {{#if icon}}
-        {{> Icon size=24 icon=icon }}
+        <div class="mainButton__icon">
+            {{> Icon size=24 icon=icon }}
+        </div>
     {{/if}}
     {{text}}
 </button>

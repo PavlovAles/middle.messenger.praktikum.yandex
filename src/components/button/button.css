@@ -22,6 +22,10 @@
     border-radius: 50%;
 }
 
+.mainButton_icon-last .mainButton__icon {
+    order: 1;
+}
+
 .mainButton_align_left {
     justify-content: flex-start;
 }
@@ -39,6 +43,13 @@
     --color-rgb: var(--color-primary-rgb);
     --tint: var(--color-primary-tint);
     --shade: var(--color-primary-shade);
+}
+
+.mainButton_variant_secondary {
+    --color: var(--color-medium);
+    --color-rgb: var(--color-medium-rgb);
+    --tint: var(--color-medium-tint);
+    --shade: var(--color-medium-shade);
 }
 
 .mainButton_variant_success {
