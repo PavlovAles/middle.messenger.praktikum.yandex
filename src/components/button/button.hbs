@@ -1,0 +1,20 @@
+{{!--
+text: string
+variant: primary success danger
+fill: solid outline link ghost
+align: left center right; center - default
+icon: check icons/icons.hbs, pass an symbol id without "-ico"
+asIconButton: boolean - get rounded icon button
+--}}
+
+<button type="{{type}}" class="
+        mainButton mainButton_variant_{{variant}} 
+        mainButton_fill_{{fill}} 
+        {{#if align}}mainButton_align_{{align}}{{/if}} 
+        {{#if asIconButton}}mainButton_with-icon-only{{/if}} 
+    ">
+    {{#if icon}}
+        {{> Icon size=24 icon=icon }}
+    {{/if}}
+    {{text}}
+</button>
