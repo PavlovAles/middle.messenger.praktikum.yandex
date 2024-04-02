@@ -1,7 +1,7 @@
 import Handlebars from 'handlebars';
+import * as helpers from './helpers';
 import * as Components from './components';
 import * as Pages from './pages';
-
 
 const pages = {
   'login': [Pages.LoginPage],
@@ -9,6 +9,10 @@ const pages = {
 
 Object.entries(Components).forEach(([name, component]) => {
   Handlebars.registerPartial(name, component);
+});
+
+Object.entries(helpers).forEach(([name, helper]) => {
+  Handlebars.registerHelper(name, helper);
 });
 
 function navigate(page: string) {

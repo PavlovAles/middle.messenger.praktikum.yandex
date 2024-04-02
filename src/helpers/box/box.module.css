@@ -1,0 +1,5 @@
+.box {
+    padding: 30px;
+    border-radius: var(--br);
+    box-shadow: var(--shadow);
+}
