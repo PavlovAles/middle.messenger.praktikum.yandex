@@ -1,5 +1,19 @@
-<div class="container">
-    <Form class="login-form">
-        {{> Input label="Login" }}
-    </Form>
+<div class="page">
+    {{> Icons }}
+    <div class="page__logo-container"></div>
+    <div class="page__form-container">
+        {{#box}}
+            <form class="form">
+                <h2 class="form__title">Вход</h2>
+                <fieldset class="form__fieldset">
+                    {{> Input type="text" label="Логин" name="name" errorMessage="oops" required=true}}
+                    {{> Input type="password" label="Пароль" name="password" required=true}}
+                </fieldset>
+                <div class="form__bottom">
+                    {{> Button type="submit" variant="primary" fill="solid" text="Войти" align='center'}}
+                    {{> Button type="button" variant="primary" fill="link" text="Нет аккаунта?"}}
+                </div>
+            </form>
+        {{/box}}
+    </div>
 </div>

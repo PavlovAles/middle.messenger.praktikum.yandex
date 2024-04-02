@@ -1,0 +1,23 @@
+<div class="page">
+    <div class="page__logo-container"></div>
+    <div class="page__form-container">
+        {{#box}}
+            <form class="form">
+                <h2 class="form__title">Регистрация</h2>
+                <fieldset class="form__fieldset">
+                    {{> Input type="email" label="Почта" name="email" required}}
+                    {{> Input type="text" label="Логин" name="login" required}}
+                    {{> Input type="text" label="Имя" name="first_name"}}
+                    {{> Input type="text" label="Фамилия" name="second_name"}}
+                    {{> Input type="text" label="Телефон" name="phone"}}
+                    {{> Input type="text" label="Пароль" name="password" required}}
+                    {{> Input type="text" label="Пароль (еще раз)" name="password_confirm" required}}
+                </fieldset>
+                <div class="form__bottom">
+                    {{> Button type="submit" variant="primary" fill="solid" text="Зарегистрироваться"}}
+                    {{> Button type="button" variant="primary" fill="link" text="Войти"}}
+                </div>
+            </form>
+        {{/box}}
+    </div>
+</div>
