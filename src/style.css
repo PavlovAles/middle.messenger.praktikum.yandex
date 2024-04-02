@@ -1,3 +1,89 @@
-:root {
+@import url('./vendor/normalize.css');
+@import url('https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic&display=swap');
 
+:root {
+	--color-primary: #5291ff;
+	--color-primary-rgb: 82,145,255;
+	--color-primary-contrast: #000000;
+	--color-primary-contrast-rgb: 0,0,0;
+	--color-primary-shade: #4880e0;
+	--color-primary-tint: #639cff;
+
+	--color-secondary: #0163aa;
+	--color-secondary-rgb: 1,99,170;
+	--color-secondary-contrast: #ffffff;
+	--color-secondary-contrast-rgb: 255,255,255;
+	--color-secondary-shade: #015796;
+	--color-secondary-tint: #1a73b3;
+
+	--color-tertiary: #6030ff;
+	--color-tertiary-rgb: 96,48,255;
+	--color-tertiary-contrast: #ffffff;
+	--color-tertiary-contrast-rgb: 255,255,255;
+	--color-tertiary-shade: #542ae0;
+	--color-tertiary-tint: #7045ff;
+
+	--color-success: #2dd55b;
+	--color-success-rgb: 45,213,91;
+	--color-success-contrast: #000000;
+	--color-success-contrast-rgb: 0,0,0;
+	--color-success-shade: #28bb50;
+	--color-success-tint: #42d96b;
+
+	--color-warning: #ffc409;
+	--color-warning-rgb: 255,196,9;
+	--color-warning-contrast: #000000;
+	--color-warning-contrast-rgb: 0,0,0;
+	--color-warning-shade: #e0ac08;
+	--color-warning-tint: #ffca22;
+
+	--color-danger: #c5000f;
+	--color-danger-rgb: 197,0,15;
+	--color-danger-contrast: #ffffff;
+	--color-danger-contrast-rgb: 255,255,255;
+	--color-danger-shade: #ad000d;
+	--color-danger-tint: #cb1a27;
+
+	--color-light: #f6f8fc;
+	--color-light-rgb: 246,248,252;
+	--color-light-contrast: #000000;
+	--color-light-contrast-rgb: 0,0,0;
+	--color-light-shade: #d8dade;
+	--color-light-tint: #f7f9fc;
+
+	--color-medium: #5f5f5f;
+	--color-medium-rgb: 95,95,95;
+	--color-medium-contrast: #ffffff;
+	--color-medium-contrast-rgb: 255,255,255;
+	--color-medium-shade: #545454;
+	--color-medium-tint: #6f6f6f;
+
+	--color-dark: #2f2f2f;
+	--color-dark-rgb: 47,47,47;
+	--color-dark-contrast: #ffffff;
+	--color-dark-contrast-rgb: 255,255,255;
+	--color-dark-shade: #292929;
+	--color-dark-tint: #444444;
+
+    --color-gradient: linear-gradient(to top, #4186fd, #00a3df, #00c0a2, #2dd55b);
+
+    --shadow: 0px 0.266px 3.192px 0px rgba(37, 37, 37, 0.03), 0px 0.893px 10.721px 0px rgba(37, 37, 37, 0.04),
+        0px 4px 48px 0px rgba(37, 37, 37, 0.07);
+
+    --text-h1: 700 32px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+    --text-h2: 700 24px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+    --text-h3: 700 20px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+    --text-h4: 700 16px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+    --text-text: 400 16px/1.6 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+    --text-caption: 400 13px/1.2 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+
+    --br: 4px;
+}
+
+body {
+    height: 100dvh;
+}
+
+.bold {
+    font-weight: 700;
 }
