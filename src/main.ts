@@ -5,6 +5,8 @@ import * as Pages from './pages';
 
 const pages = {
   'login': [Pages.LoginPage],
+  'registration': [Pages.RegistrationPage],
+  'nav': [Pages.NavigatePage]
 };
 
 Object.entries(Components).forEach(([name, component]) => {
@@ -22,7 +24,7 @@ function navigate(page: string) {
   container.innerHTML = Handlebars.compile(source)(context);
 }
 
-document.addEventListener('DOMContentLoaded', () => navigate('login'));
+document.addEventListener('DOMContentLoaded', () => navigate('nav'));
 
 document.addEventListener('click', e => {
   //@ts-ignore
