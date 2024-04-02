@@ -1,58 +1,57 @@
-.input {
-    padding: 10px;
-  }
-  
-  .input__container {
-    display: flex;
-    height: 38px;
-    flex-direction: column;
-    align-content: flex-end;
-  }
-  
-  .input__label {
-    transform: translateY(-21px);
-    color: var(--text-secondary-color);
-    font-size: 13px;
-    font-weight: 500;
-    user-select: none;
-    transition:
-      font-size 0.5s,
-      transform 0.5s;
-  }
-  
-  .input__element {
-    border: none;
-    padding: 0%;
-    border-bottom: 1px solid var(--main-color);
-    font-size: 13px;
-    font-weight: 500;
-    color: var(--text-color);
-    padding-bottom: 7px;
-  }
-  
-  .input__element:focus-visible {
-    outline: none;
-  }
-  
-  .input__text-error {
-    transform: translateY(-7px);
-    color: var(--error-color);
-    font-size: 8px;
-    font-weight: 400;
-    display: none;
-  }
-  
-  .input__element:not(:placeholder-shown) + .input__label,
-  .input__element:focus + .input__label {
-    transform: translateY(-36px);
-    font-size: 9px;
-  }
-  
-  .input__error .input__text-error {
-    display: block;
-  }
-  
-  .input__error .input__element {
-    color: var(--error-color);
-  }
-  
+.form-input-wrapper {
+    padding: 10px 0;
+    position: relative;
+
+    .form-input {
+        position: relative;
+
+        &::after {
+            content: '';
+            height: 1px;
+            display: block;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -2px;
+            background-color: var(--color-primary-tint);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        &:has(.form-input__input:focus)::after {
+            background-color: var(--color-primary);
+        }
+
+        .form-input__input {
+            font: var(--text-text);
+            outline: none;
+            border: none;
+        }
+
+        .form-input__input_error {
+            color: var(--color-danger);
+        }
+
+        .form-input__input:focus ~ .form-input__label,
+        .form-input__input:not(:placeholder-shown) ~ .form-input__label {
+            font: var(--text-caption);
+            transform: translateY(-12px);
+        }
+
+        .form-input__label {
+            position: absolute;
+            left: 2px;
+            top: -4px;
+            font: var(--text-text);
+            color: var(--color-medium);
+            transition: all 0.3s ease-in-out;
+        }
+    }
+
+    .form-input-wrapper__error {
+        position: absolute;
+        left: 2px;
+        bottom: -2px;
+        font: var(--text-caption);
+        color: var(--color-danger);
+    }
+}
