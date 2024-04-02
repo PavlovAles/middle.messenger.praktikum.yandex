@@ -5,13 +5,13 @@
             <form class="form">
                 <h2 class="form__title">Регистрация</h2>
                 <fieldset class="form__fieldset">
-                    {{> Input type="email" label="Почта" name="email" required}}
-                    {{> Input type="text" label="Логин" name="login" required}}
+                    {{> Input type="email" label="Почта" name="email" required=true}}
+                    {{> Input type="text" label="Логин" name="login" required=true}}
                     {{> Input type="text" label="Имя" name="first_name"}}
                     {{> Input type="text" label="Фамилия" name="second_name"}}
                     {{> Input type="text" label="Телефон" name="phone"}}
-                    {{> Input type="text" label="Пароль" name="password" required}}
-                    {{> Input type="text" label="Пароль (еще раз)" name="password_confirm" required}}
+                    {{> Input type="text" label="Пароль" name="password" required=true}}
+                    {{> Input type="text" label="Пароль (еще раз)" name="password_confirm" required=true}}
                 </fieldset>
                 <div class="form__bottom">
                     {{> Button type="submit" variant="primary" fill="solid" text="Зарегистрироваться"}}
