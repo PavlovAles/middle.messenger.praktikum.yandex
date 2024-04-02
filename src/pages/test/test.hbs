@@ -1,2 +1,18 @@
 {{> Icons }}
-{{> Avatar size=100 src="https://source.unsplash.com/random/200x200"}}
+<main class="main">
+    <div class="main__left">
+        <div class="profile-button-wrapper">
+            {{> Button type="button" variant="secondary" fill="ghost" icon='alt-arrow' text='Профиль' align='right'
+            iconLast=true }}
+        </div>
+
+        <form class="chat-search-form" id="chat-search">
+            <input class="chat-search-form__input" type="text" label="Поиск" name="message" placeholder="Поиск" />
+        </form>
+
+        {{> ChatList }}
+    </div>
+    <div class="main__right">
+
+    </div>
+</main>
