@@ -1,0 +1,54 @@
+.changeAvatarForm {
+    width: 280px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .changeAvatarForm__title {
+        margin: 0 0 40px;
+        text-align: center;
+        font: var(--text-h2);
+    }
+
+    .changeAvatarForm__title_error {
+        color: var(--color-danger);
+    }
+
+    .changeAvatarForm__content {
+        display: grid;
+        place-items: center;
+        margin-bottom: 45px;
+
+        .filename {
+            font: var(--text-caption);
+            text-align: center;
+            color: var(--color-medium);
+        }
+
+        .input {
+            width: 140px;
+            display: block;
+            font: var(--text-text);
+            color: var(--color-primary);
+            text-decoration: underline;
+            text-align: center;
+            cursor: pointer;
+        }
+    }
+
+
+    .changeAvatarForm__bottom {
+        margin-top: auto;
+        padding-bottom: 25px;
+        position: relative;
+
+        .changeAvatarForm__no-file-click {
+            position: absolute;
+            font: var(--text-caption);
+            color: var(--color-danger);
+            left: 50%;
+            bottom: -4px;
+            transform: translateX(-50%);
+        }
+    }
+}
