@@ -6,6 +6,7 @@ import * as Pages from './pages';
 const pages = {
   'login': [Pages.LoginPage],
   'registration': [Pages.RegistrationPage],
+  'main': [Pages.MainPage],
   'nav': [Pages.NavigatePage],
   'test': [Pages.TestPage],
 };
@@ -25,7 +26,7 @@ function navigate(page: string) {
   container.innerHTML = Handlebars.compile(source)(context);
 }
 
-document.addEventListener('DOMContentLoaded', () => navigate('test'));
+document.addEventListener('DOMContentLoaded', () => navigate('nav'));
 
 document.addEventListener('click', e => {
   //@ts-ignore
