@@ -2,16 +2,18 @@
     height: 100dvh;
     display: grid;
     grid-template-columns: 1fr 1fr;
-}
 
-.registrationPage__logo-container {
-    background: var(--color-gradient);
-}
+    .registrationPage__left {
+        background: var(--color-gradient);
+    }
 
-.registrationPage__form-container {
-    width: calc(100% - 24px);
-    max-width: 340px;
-    display: flex;
-    align-self: center;
-    justify-self: center;
+    .registrationPage__right {
+        display: grid;
+
+        .registrationPage__form {
+            width: calc(100% - 24px);
+            max-width: 340px;
+            place-self: center;
+        }
+    }
 }

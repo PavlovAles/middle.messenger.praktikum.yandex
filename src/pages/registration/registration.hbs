@@ -1,7 +1,9 @@
 {{> Icons }}
 <main class="registrationPage">
-    <div class="registrationPage__logo-container"></div>
-    <div class="registrationPage__form-container">
-        {{> Form title='Регистрация' inputs=(registrationFormInputs) buttons=(registrationFormButtons) }}
+    <div class="registrationPage__left"></div>
+    <div class="registrationPage__right">
+        <div class="registrationPage__form">
+            {{> Form (registrationFormConfig) }}
+        </div>
     </div>
 </main>

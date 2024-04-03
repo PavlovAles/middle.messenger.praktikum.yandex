@@ -2,7 +2,7 @@ import Handlebars from 'handlebars';
 import './login.css';
 export { default as LoginPage } from './login.hbs?raw';
 
-const loginFormInputs = [
+const inputs = [
     {
         type: "text",
         label: "Логин",
@@ -19,7 +19,7 @@ const loginFormInputs = [
     }
 ];
 
-const loginFormButtons = [
+const buttons = [
     {
         type: "submit",
         variant: "primary",
@@ -35,10 +35,11 @@ const loginFormButtons = [
     }
 ];
 
-Handlebars.registerHelper('loginFormInputs', () => {
-    return loginFormInputs;
-});
-
-Handlebars.registerHelper('loginFormButtons', () => {
-    return loginFormButtons;
+Handlebars.registerHelper('loginFormConfig', () => {
+    return {
+        title: 'Вход',
+        id: 'login-form',
+        inputs,
+        buttons,
+    };
 }) 

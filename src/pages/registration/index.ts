@@ -2,7 +2,7 @@ import Handlebars from 'handlebars';
 import './registration.css';
 export { default as RegistrationPage } from './registration.hbs?raw';
 
-const registrationFormInputs = [
+const inputs = [
     {
         type: "email",
         label: "Почта",
@@ -44,7 +44,7 @@ const registrationFormInputs = [
     },
 ];
 
-const registrationFormButtons = [
+const buttons = [
     {
         type: "submit",
         variant: "primary",
@@ -59,10 +59,11 @@ const registrationFormButtons = [
     }
 ];
 
-Handlebars.registerHelper('registrationFormInputs', () => {
-    return registrationFormInputs;
-});
-
-Handlebars.registerHelper('registrationFormButtons', () => {
-    return registrationFormButtons;
-})
+Handlebars.registerHelper('registrationFormConfig', () => {
+    return {
+        title: 'Регистрация',
+        id: 'registration-form',
+        inputs,
+        buttons,
+    };
+}) 
