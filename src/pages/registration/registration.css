@@ -1,31 +1,33 @@
-.page {
+.registrationPage {
     height: 100dvh;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
 
-.page__logo-container {
+.registrationPage__logo-container {
     background: var(--color-gradient);
 }
 
-.page__form-container {
+.registrationPage__form-container {
+    width: calc(100% - 24px);
+    max-width: 340px;
     display: flex;
     align-self: center;
     justify-self: center;
 }
 
-.form {
+.registration-form {
     min-height: 450px;
     display: flex;
     flex-direction: column;
 
-    .form__title {
+    .registration-form__title {
         margin: 0 0 40px;
         text-align: center;
         font: var(--text-h2);   
     }
 
-    .form__fieldset {
+    .registration-form__fieldset {
         margin: 0 0 20px;
         padding: 0;
         display: flex;
@@ -34,7 +36,7 @@
         border: none;
     }
 
-    .form__bottom {
+    .registration-form__bottom {
         margin-top: auto;
         display: flex;
         flex-direction: column;

@@ -1,8 +1,13 @@
 .form-input-wrapper {
-    padding: 10px 0;
+    padding: 15px 0;
     position: relative;
 
+    &:first-of-type .form-input {
+        display: block;
+    }
+
     .form-input {
+        display: block;
         position: relative;
 
         &::after {
@@ -12,7 +17,7 @@
             position: absolute;
             left: 0;
             right: 0;
-            bottom: -2px;
+            bottom: 0;
             background-color: var(--color-primary-tint);
             transition: background-color 0.3s ease-in-out;
         }
@@ -22,6 +27,8 @@
         }
 
         .form-input__input {
+            height: 18px;
+            width: 100%;
             font: var(--text-text);
             outline: none;
             border: none;
@@ -50,7 +57,7 @@
     .form-input-wrapper__error {
         position: absolute;
         left: 2px;
-        bottom: -2px;
+        bottom: 0;
         font: var(--text-caption);
         color: var(--color-danger);
     }

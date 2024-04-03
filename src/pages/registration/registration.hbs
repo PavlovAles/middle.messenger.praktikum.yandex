@@ -1,10 +1,10 @@
-<div class="page">
-    <div class="page__logo-container"></div>
-    <div class="page__form-container">
+<main class="registrationPage">
+    <div class="registrationPage__logo-container"></div>
+    <div class="registrationPage__form-container">
         {{#box}}
-            <form class="form" id="registration-form">
-                <h2 class="form__title">Регистрация</h2>
-                <fieldset class="form__fieldset">
+            <form class="registration-form" id="registration-form">
+                <h2 class="registration-form__title">Регистрация</h2>
+                <fieldset class="registration-form__fieldset">
                     {{> Input type="email" label="Почта" name="email" required=true}}
                     {{> Input type="text" label="Логин" name="login" required=true}}
                     {{> Input type="text" label="Имя" name="first_name"}}
@@ -13,7 +13,7 @@
                     {{> Input type="text" label="Пароль" name="password" required=true}}
                     {{> Input type="text" label="Пароль (еще раз)" name="password_confirm" required=true}}
                 </fieldset>
-                <div class="form__bottom">
+                <div class="registration-form__bottom">
                     {{> Button type="submit" variant="primary" fill="solid" text="Зарегистрироваться"}}
                     {{> Button type="button" variant="primary" fill="link" text="Войти"}}
                 </div>
