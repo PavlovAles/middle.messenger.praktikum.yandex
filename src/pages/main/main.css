@@ -12,7 +12,7 @@
     border-right: 1px solid var(--color-light-shade);
 
     .profile-button-wrapper {
-            padding: 10px;
+        padding: 10px;
     }
 
     .chat-search-form {
@@ -44,18 +44,19 @@
 
 .main__right {
     height: 100dvh;
-    padding: 0 10px;
     background-color: var(--color-light);
 
     .feed {
-        height: 100%;
+        height: 100dvh;
         display: grid;
         grid-template-rows: 60px 1fr 60px;
 
         .feed__top {
+            padding: 0 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid var(--color-light-shade);
 
             .header {
                 display: flex;
@@ -63,24 +64,20 @@
                 align-items: center;
 
                 .header__text {
-                    font: var(--text-h3)
+                    font: var(--text-h3);
                 }
             }
         }
 
-        .feed__chat {
-            border-top: 1px solid var(--color-light-shade);
-            border-bottom: 1px solid var(--color-light-shade);
-        }
-
         .feed__bottom {
             height: 48px;
-            width: 100%;
+            padding: 0 10px;
             display: flex;
             gap: 10px;
             justify-content: space-between;
             align-items: center;
             align-self: center;
+            border-top: 1px solid var(--color-light-shade);
 
             .message-form {
                 flex-grow: 1;

@@ -38,5 +38,5 @@ const testData = [
 ];
 
 Handlebars.registerHelper('feed', () => {
-    return testData;
+    return [].concat(...Array(7).fill(testData));
 }) 
