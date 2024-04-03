@@ -1,0 +1,33 @@
+{{!--
+time: '06:21',
+text: 'Нормально',
+sended: true,
+readed: true,
+image: 'https://source.unsplash.com/random/400x600',
+incoming: true,
+--}}
+
+<li class="
+    messageListItem 
+    {{#if incoming}}messageListItem_incoming{{/if}}
+    {{#if image}}messageListItem_image{{/if}}
+">
+    {{#if text}}
+        {{text}}<span class="timeSpaceHolder"></span>
+    {{/if}}
+
+    {{#if image}}
+        <img src="{{image}}" class="image"/>
+    {{/if}}
+
+    <div class="time {{#if image}}time_image{{/if}}">
+        {{#unless incoming}}
+            {{#if readed}}
+                {{> Icon size=12 icon="read" }}
+            {{else if sended}}
+                {{> Icon size=12 icon="unread" }}
+            {{/if}}
+        {{/unless}}    
+        {{time}}
+    </div>
+</li>

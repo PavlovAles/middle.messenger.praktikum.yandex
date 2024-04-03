@@ -1,0 +1,65 @@
+.messageListItem {
+    max-width: 402px;
+    padding: 11px;
+    align-self: flex-end;
+    position: relative;
+    font: var(--text-text);
+    border-radius: var(--br);
+    border-bottom-right-radius: 0;
+    background-color: var(--color-primary-tint);
+    background-color: rgba(var(--color-primary-rgb), 0.2);
+}
+
+.messageListItem_incoming {
+    align-self: flex-start;
+    background-color: var(--color-medium-tint);
+    border-radius: var(--br);
+    border-top-left-radius: 0;
+}
+
+.messageListItem_image {
+    width: 90%;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    background-color: unset;
+    border: 1px solid var(--color-medium-tint);
+    overflow: hidden;
+
+    .image {
+        width: 100%;
+        max-height: 50vh;
+        object-fit: cover;
+    }
+}
+
+.timeSpaceHolder {
+    width: 35px;
+    height: 1px;
+    display: inline-block;
+}
+
+.time {
+    height: 12px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    bottom: 11px;
+    right: 11px;
+    font: 400 9px/1 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+}
+
+.messageListItem .time {
+    color: var(--color-primary);
+}
+
+.messageListItem_incoming .time {
+    color: var(--color-medium-shade);
+}
+
+.messageListItem_image .time {
+    padding: 2px 7px;
+    background-color: var(--color-medium-shade);
+    color: var(--color-light);
+    border-radius: 6px;
+}

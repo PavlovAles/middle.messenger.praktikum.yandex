@@ -77,7 +77,7 @@
     --text-text: 400 16px/1.6 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
     --text-caption: 400 13px/1.2 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
 
-    --br: 4px;
+    --br: 12px;
 }
 
 body {
@@ -109,4 +109,5 @@ ul {
 
 li {
     padding: 0;
+    list-style: none;
 }
