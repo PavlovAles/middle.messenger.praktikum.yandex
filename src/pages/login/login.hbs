@@ -1,19 +1,7 @@
+{{> Icons }}
 <main class="loginPage">
-    {{> Icons }}
     <div class="loginPage__logo-container"></div>
     <div class="loginPage__form-container">
-        {{#box}}
-        <form class="login-form" id="login-form">
-            <h2 class="login-form__title">Вход</h2>
-            <fieldset class="login-form__fieldset">
-                {{> Input type="text" label="Логин" name="name" errorMessage="oops" required=true}}
-                {{> Input type="password" label="Пароль" name="password" errorMessage="oops" required=true}}
-            </fieldset>
-            <div class="login-form__bottom">
-                {{> Button type="submit" variant="primary" fill="solid" text="Войти" align='center'}}
-                {{> Button type="button" variant="primary" fill="link" text="Нет аккаунта?"}}
-            </div>
-        </form>
-        {{/box}}
+        {{> Form title='Вход' inputs=(loginFormInputs) buttons=(loginFormButtons) }}
     </div>
 </main>
