@@ -1,18 +1,28 @@
 {{> Icons }}
-<main class="main">
-    <div class="main__left">
-        <div class="profile-button-wrapper">
-            {{> Button type="button" variant="secondary" fill="ghost" icon='alt-arrow' text='Профиль' align='right'
-            iconLast=true }}
-        </div>
+<div class="tooltipAndPopupGallery">
 
-        <form class="chat-search-form" id="chat-search">
-            <input class="chat-search-form__input" type="text" label="Поиск" name="message" placeholder="Поиск" />
-        </form>
+    {{> AttachmentButtons }}
+    
+    {{> ChatSettings }}
 
-        {{> ChatList }}
+    <div style="display: flex; gap: 24px">
+        {{> ChatSettingsForm config=(chatSettingsFormAddUser) }}
+        {{> ChatSettingsForm config=(chatSettingsFormRemoveUser) }}
     </div>
-    <div class="main__right">
 
+    <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+        {{> ChangeAvatarForm title="Загрузите файл" }}
+        {{> ChangeAvatarForm 
+            title="Файл загружен"
+            file='avatar-with-long-name-coz-why-not-why-not-why-not-why-not.jpg'
+        }}
+        {{> ChangeAvatarForm 
+            title="Файл загружен"
+            noFileClick=true
+        }}
+        {{> ChangeAvatarForm 
+            title="Ошибка, попробуйте ещё раз"
+            errorOnLoad=true
+        }}
     </div>
-</main>
+</div>
