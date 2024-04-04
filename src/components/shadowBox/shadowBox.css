@@ -1,5 +1,6 @@
 .shadowBox {
     height: 100%;
+    min-height: inherit;
     padding: 30px;
     border-radius: var(--br);
     box-shadow: var(--shadow);

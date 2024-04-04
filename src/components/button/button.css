@@ -108,6 +108,7 @@
 }
 
 .mainButton_fill_link {
+    padding: 0;
     color: var(--color);
 
     &:hover {

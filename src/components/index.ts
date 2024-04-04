@@ -12,3 +12,6 @@ export { ChangeAvatarForm } from './changeAvatarForm';
 export { AttachmentButtons } from './attachmentButtons';
 export { ChatSettings } from './chatSettings';
 export { ChatSettingsForm } from './chatSettingsForm';
+export { SetUserAvatarButton } from './setUserAvatarButton';
+export { ProfileFormInput } from './profileFormInput';
+export { SeparatorLine } from './separatorLine';

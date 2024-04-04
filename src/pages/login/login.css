@@ -11,7 +11,7 @@
         display: grid;
 
         .loginPage__form {
-            height: 460px;
+            min-height: 460px;
             width: calc(100% - 24px);
             max-width: 340px;
             place-self: center;
