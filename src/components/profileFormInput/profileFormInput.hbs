@@ -1,0 +1,10 @@
+<label class="profileFormInput {{#if error}}profileFormInput_error{{/if}}">
+    <span class="profileFormInput__label">{{label}}</span>
+    <input class="profileFormInput__input" 
+        type="{{type}}"
+        name="{{name}}" 
+        value="{{value}}"
+        {{#if required}}required{{/if}} 
+        {{#if disabled}}disabled{{/if}} 
+    />
+</label>
