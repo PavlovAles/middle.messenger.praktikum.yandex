@@ -1,6 +1,6 @@
 .chatSettings {
     width: fit-content;
-    
+
     .chatSettings-list {
         display: flex;
         flex-direction: column;

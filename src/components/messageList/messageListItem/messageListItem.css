@@ -46,7 +46,12 @@
     position: absolute;
     bottom: 11px;
     right: 11px;
-    font: 400 9px/1 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+    font:
+        400 9px/1 'PT Sans',
+        'Arial',
+        'Helvetica Neue',
+        'Helvetica',
+        sans-serif;
 }
 
 .messageListItem .time {

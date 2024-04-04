@@ -11,7 +11,7 @@ const testData = [
             from: '',
             text: 'а',
             date: 'Ср',
-        }
+        },
     },
     {
         chatAvatar: 'https://source.unsplash.com/random/200x200',
@@ -22,7 +22,7 @@ const testData = [
             from: 'Some user',
             text: 'привет че как',
             date: '16:20',
-        }
+        },
     },
     {
         chatAvatar: 'https://source.unsplash.com/random/200x200',
@@ -33,10 +33,12 @@ const testData = [
             from: 'Whaaaaaat',
             text: 'asd fasd fasdfasd fasd fasd fasdfi asdfaoisdj fasid jfaisd faisdf asdf ',
             date: '24 февраля 2022',
-        }
+        },
     },
 ];
 
 Handlebars.registerHelper('chats', () => {
-    return [{ ...testData[1], active: false }].concat(...Array(7).fill(testData));
-})
+    return [{ ...testData[1], active: false }].concat(
+        ...Array(7).fill(testData),
+    );
+});

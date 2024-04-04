@@ -16,7 +16,7 @@ const testData = [
                 image: 'https://source.unsplash.com/random/400x300',
                 incoming: true,
             },
-        ]
+        ],
     },
     {
         date: 'сегодня',
@@ -33,10 +33,10 @@ const testData = [
                 sended: true,
                 readed: false,
             },
-        ]
-    }
+        ],
+    },
 ];
 
 Handlebars.registerHelper('feed', () => {
     return [].concat(...Array(7).fill(testData));
-}) 
+});

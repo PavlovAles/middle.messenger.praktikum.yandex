@@ -21,5 +21,5 @@
 }
 
 .profileFormInput__input:focus {
-    color: var(--color-dark)
+    color: var(--color-dark);
 }
