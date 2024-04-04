@@ -5,7 +5,7 @@
     "type": "module",
     "scripts": {
         "dev": "vite",
-        "build": "vite build",
+        "build": "tsc && vite build",
         "start": "npm ci && npm run build && node server.cjs",
         "preview": "vite preview"
     },
@@ -17,6 +17,9 @@
     },
     "dependencies": {
         "handlebars": "^4.7.8"
+    },
+    "optionalDependencies": {
+        "@rollup/rollup-linux-x64-gnu": "4.6.1"
     },
     "engines": {
         "node": ">=18.0.0"
