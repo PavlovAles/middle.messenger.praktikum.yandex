@@ -1,6 +1,9 @@
 import Handlebars from 'handlebars';
-import * as Components from './components';
 import { pages } from './constants/pages';
+import { registerHelpers } from './utils/helpers';
+import * as Components from './components';
+
+registerHelpers();
 
 Object.entries(Components).forEach(([name, component]) => {
     Handlebars.registerPartial(name, component);
