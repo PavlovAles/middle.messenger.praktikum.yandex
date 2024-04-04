@@ -38,7 +38,7 @@ const testData = [
 ];
 
 Handlebars.registerHelper('chats', () => {
-    return [{ ...testData[1], active: false }].concat(
+    return [{ ...testData[1], active: true }].concat(
         ...Array(7).fill(testData),
     );
 });
