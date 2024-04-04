@@ -18,6 +18,8 @@ const pages = {
         Pages.ProfilePage,
         Pages.getProfilePageContext('changePassword'),
     ],
+    'error-404': [Pages.ErrorPage, Pages.getErrorPageContext('404')],
+    'error-500': [Pages.ErrorPage, Pages.getErrorPageContext('500')],
     'nav': [Pages.NavigatePage],
     'test': [Pages.TestPage],
 };
@@ -44,14 +46,4 @@ document.addEventListener('click', e => {
         e.preventDefault();
         e.stopImmediatePropagation();
     }
-});
-
-Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
-    //@ts-ignore
-    return arg1 == arg2 ? options.fn(this) : options.inverse(this);
-});
-
-Handlebars.registerHelper('ifNotEquals', function (arg1, arg2, options) {
-    //@ts-ignore
-    return arg1 !== arg2 ? options.fn(this) : options.inverse(this);
 });
