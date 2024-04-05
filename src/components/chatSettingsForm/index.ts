@@ -3,6 +3,7 @@ import './chatSettingsForm.css';
 export { default as ChatSettingsForm } from './chatSettingsForm.hbs?raw';
 
 const addUserConfig = {
+    id: 'add-user-form',
     title: 'Добавить пользователя',
     inputs: [
         {
@@ -24,6 +25,7 @@ const addUserConfig = {
 };
 
 const removeUserConfig = {
+    id: 'remove-user-form',
     title: 'Удалить пользователя',
     inputs: [
         {
@@ -44,10 +46,29 @@ const removeUserConfig = {
     ],
 };
 
+const removeChatConfig = {
+    id: 'remove-chat-form',
+    title: 'Удалить чат',
+    inputs: [],
+    buttons: [
+        {
+            type: 'submit',
+            variant: 'danger',
+            fill: 'solid',
+            text: 'Удалить',
+            align: 'center',
+        },
+    ],
+};
+
 Handlebars.registerHelper('chatSettingsFormAddUser', () => {
     return addUserConfig;
 });
 
 Handlebars.registerHelper('chatSettingsFormRemoveUser', () => {
     return removeUserConfig;
+});
+
+Handlebars.registerHelper('chatSettingsFormDeleteChat', () => {
+    return removeChatConfig;
 });

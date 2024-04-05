@@ -7,16 +7,20 @@
 .main__left {
     height: 100dvh;
     display: grid;
-    grid-template-rows: 50px 60px 1fr;
+    grid-template-rows: repeat(3, 50px) 1fr;
     background-color: var(--color-medium-tint);
     border-right: 1px solid var(--color-light-shade);
 
     .profile-button-wrapper {
         padding: 10px;
     }
-
+    
     .chat-search-form {
-        padding: 10px 10px 20px;
+        padding: 10px;
+    }
+    
+    .profile-button-wrapper {
+        padding: 10px;
     }
 
     .chat-search-form__input {

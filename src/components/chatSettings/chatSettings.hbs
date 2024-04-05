@@ -2,11 +2,19 @@
     {{#> ShadowBox padding=15}}
     <ul class="chatSettings-list">
         <li class="chatSettings-list__item">
+            {{> Button type="button" variant="primary" fill="ghost" text="Изменить группу" align="left"
+            icon="pencil"}}
+        </li>
+        <li class="chatSettings-list__item">
             {{> Button type="button" variant="primary" fill="ghost" text="Добавить пользователя" align="left"
             icon="add"}}
         </li>
         <li class="chatSettings-list__item">
             {{> Button type="button" variant="primary" fill="ghost" text="Удалить пользователя" align="left"
+            icon="remove"}}
+        </li>
+        <li class="chatSettings-list__item">
+            {{> Button type="button" variant="danger" fill="ghost" text="Удалить чат" align="left"
             icon="remove"}}
         </li>
     </ul>

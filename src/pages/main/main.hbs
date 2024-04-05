@@ -8,7 +8,9 @@
         <form class="chat-search-form" id="chat-search">
             <input class="chat-search-form__input" type="text" name="message" placeholder="Поиск" />
         </form>
-        {{> Button type="button" variant="primary" fill="ghost" icon="paperclip" text="Создать группу"}}
+        <div class="profile-button-wrapper">
+            {{> Button type="button" variant="primary" fill="solid" text="Создать группу"}}
+        </div>
         {{> ChatList }}
     </div>
     <div class="main__right">
