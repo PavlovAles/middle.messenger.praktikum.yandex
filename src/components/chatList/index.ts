@@ -16,7 +16,7 @@ const testData = [
     {
         chatAvatar: 'https://source.unsplash.com/random/200x200',
         chatName: 'Some name',
-        newMessagesCount: 14519,
+        newMessagesCount: 145,
         active: false,
         lastMessage: {
             from: 'Some user',

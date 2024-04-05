@@ -32,6 +32,9 @@
 }
 
 .chatListItem__avatar {
+    width: 47px;
+    height: 47px;
+    flex-shrink: 0;
     align-self: center;
 }
 
@@ -97,9 +100,9 @@
 
     .new-messages-counter {
         min-width: 20px;
-        max-width: 40px;
+        max-width: 45px;
         height: 20px;
-        padding: 0 4px;
+        padding: 0 5px;
         display: grid;
         place-content: center;
         flex-shrink: 0;

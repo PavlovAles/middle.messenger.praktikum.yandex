@@ -17,7 +17,9 @@
         <div class="feed">
             <div class="feed__top">
                 <div class="header">
-                    {{> Avatar size=34 src="https://source.unsplash.com/random/200x200"}}
+                    <div class="header__avatar">
+                        {{> Avatar src="https://source.unsplash.com/random/200x200"}}
+                    </div>
                     <h1 class="header__text">Заголовок чата</h2>
                 </div>
                 {{> Button type="button" variant="primary" fill="ghost" icon="settings" asIconButton=true}}
