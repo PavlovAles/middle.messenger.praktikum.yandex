@@ -1,7 +1,7 @@
 {{> Icons }}
 <main class="profilePage">
     <div class="profilePage__left">
-        {{> Button type="button" variant="primary" fill="solid" icon='arrow-left' asIconButton=true}}
+        {{> Button type="button" variant="primary" fill="solid" icon="arrow-left" asIconButton=true}}
     </div>
     <div class="profilePage__right">
         <div class="prifile__avatar">
@@ -17,14 +17,14 @@
             {{/each}}
         </form>
         <div class="prifileForm_buttons">
-            {{#ifEquals type 'info'}}
+            {{#ifEquals type "info"}}
                 {{> Button type="button" variant="primary" fill="link" text="Изменить данные" align="left" }}
                 {{> SeparatorLine}}
                 {{> Button type="button" variant="primary" fill="link" text="Изменить пароль" align="left" }}
                 {{> SeparatorLine}}
                 {{> Button type="button" variant="danger" fill="link" text="Выйти" align="left" }}
             {{/ifEquals}}
-            {{#ifNotEquals type 'info'}}
+            {{#ifNotEquals type "info"}}
                 {{> Button type="button" variant="primary" fill="solid" text="Сохранить" align="center" }}
             {{/ifNotEquals}}
         </div>
