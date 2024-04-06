@@ -2,5 +2,13 @@
     padding: 48px;
     display: flex;
     flex-direction: column;
-    gap: 48px;
+}
+
+.group {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--color-medium);
 }
