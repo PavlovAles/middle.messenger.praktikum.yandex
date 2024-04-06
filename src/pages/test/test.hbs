@@ -1,24 +1,32 @@
 {{> Icons }}
 <div class="tooltipAndPopupGallery">
 
-    {{> AttachmentButtons }}
-    
-    {{> ChatSettings }}
-
-    <div style="display: flex; gap: 24px">
-        {{> ChatSettingsForm config=(chatSettingsFormAddUser) }}
-        {{> ChatSettingsForm config=(chatSettingsFormRemoveUser) }}
-        {{> ChatSettingsForm config=(chatSettingsFormDeleteChat) }}
+    <div class="group">
+        {{> AttachmentButtons }}
     </div>
 
-    <div style="display: flex; gap: 24px; flex-wrap: wrap;">
+    <div class="group">
+        {{> ChatSettings type='direct' }}
+        {{> ChatSettings type='group' }}
+        {{> ChatSettings type='changeGroup' }}
+    </div>
+
+    <div class="group">
+        {{> ChatSettingsForm type='addUser' }}
+        {{> ChatSettingsForm type='removeUser' }}
+        {{> ChatSettingsForm type='changeGroupName' }}
+        {{> ChatSettingsForm type='changeGroupAvatar' }}
+        {{> ChatSettingsForm type='deleteChat' }}
+    </div>
+
+    <div class="group">
         {{> ChangeAvatarForm title="Загрузите файл" }}
         {{> ChangeAvatarForm 
             title="Файл загружен"
             file="avatar-with-long-name-coz-why-not-why-not-why-not-why-not.jpg"
         }}
         {{> ChangeAvatarForm 
-            title="Файл загружен"
+            title="Загрузите файл"
             noFileClick=true
         }}
         {{> ChangeAvatarForm 

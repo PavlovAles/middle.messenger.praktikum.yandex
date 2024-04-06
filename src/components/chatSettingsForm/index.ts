@@ -46,8 +46,8 @@ const removeUserConfig = {
     ],
 };
 
-const removeChatConfig = {
-    id: 'remove-chat-form',
+const deleteChatConfig = {
+    id: 'delete-chat-form',
     title: 'Удалить чат',
     inputs: [],
     buttons: [
@@ -61,14 +61,38 @@ const removeChatConfig = {
     ],
 };
 
-Handlebars.registerHelper('chatSettingsFormAddUser', () => {
-    return addUserConfig;
-});
+const changeGroupNameConfig = {
+    id: 'change-group-form',
+    title: 'Переименовать',
+    inputs: [
+        {
+            type: 'text',
+            label: 'Название',
+            name: 'groupName',
+            required: true,
+        },
+    ],
+    buttons: [
+        {
+            type: 'submit',
+            variant: 'primary',
+            fill: 'solid',
+            text: 'Поменять',
+            align: 'center',
+        },
+    ],
+};
 
-Handlebars.registerHelper('chatSettingsFormRemoveUser', () => {
-    return removeUserConfig;
-});
+const chatSettingsFormPropsByType = {
+    addUser: addUserConfig,
+    removeUser: removeUserConfig,
+    deleteChat: deleteChatConfig,
+    changeGroupName: changeGroupNameConfig,
+};
 
-Handlebars.registerHelper('chatSettingsFormDeleteChat', () => {
-    return removeChatConfig;
-});
+Handlebars.registerHelper(
+    'getChatSettingsFormProps',
+    (type: keyof typeof chatSettingsFormPropsByType) => {
+        return chatSettingsFormPropsByType[type];
+    },
+);
