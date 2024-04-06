@@ -2,12 +2,14 @@
 
 Как Telegram, только поменьше
 
+Внутри шаблоны Handlebars, сборка Vite и.. пока все
+
 ### Посмотреть 
 Можно на [Netlify](https://deploy--clinquant-sunshine-4c937c.netlify.app/)
 Вас встретит dummy-навигация по страницам
 
 ### Макет 
-[Стандартный макет](https://www.figma.com/file/CRINoLTnYi5EXwrZ1FfIx8/Milligram?type=design&t=LXH6YoennWxSvaug-6) с парой новых кнопок, разбавленный в коде иконками и цветами, выбранными сердцем и бесплатными стоками
+[Стандартный макет](https://www.figma.com/file/CRINoLTnYi5EXwrZ1FfIx8/Milligram?type=design&t=H3tMlbR80XY98YvR-6) с парой новых кнопок, разбавленный в коде иконками и цветами, выбранными сердцем и бесплатными стоками
 
 ## Установка
 
