@@ -2,7 +2,11 @@ import Handlebars from 'handlebars';
 import './chatSettings.css';
 export { default as ChatSettings } from './chatSettings.hbs?raw';
 
-const getButtonProps = (props: { text: string; icon: string; variant?: string }) => ({
+const getButtonProps = (props: {
+    text: string;
+    icon: string;
+    variant?: string;
+}) => ({
     type: 'button',
     variant: 'primary',
     fill: 'ghost',

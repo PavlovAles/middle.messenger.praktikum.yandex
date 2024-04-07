@@ -14,6 +14,7 @@ const testData = [
             {
                 time: '16:20',
                 image: 'https://source.unsplash.com/random/400x300',
+                imageAlt: 'Интересно, будет ли здесь осмысленный альт',
                 incoming: true,
             },
         ],
