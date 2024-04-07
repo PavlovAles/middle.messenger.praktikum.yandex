@@ -9,7 +9,7 @@ interface IUser {
     second_name?: string;
     display_name: string;
     phone?: string;
-};
+}
 
 const user: IUser = {
     email: 'pochta@yandex.ru',
