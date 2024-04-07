@@ -3,7 +3,7 @@ import * as Pages from '../pages';
 export const pages: Record<string, any[]> = {
     'nav': [Pages.NavigatePage],
     'test': [Pages.TestPage],
-    'main': [Pages.MainPage],
+    'main': [Pages.MainPage, Pages.getMainPageContext()],
     'login': [Pages.LoginPage, Pages.getLoginPageContext('login')],
     'error-404': [Pages.ErrorPage, Pages.getErrorPageContext('404')],
     'error-500': [Pages.ErrorPage, Pages.getErrorPageContext('500')],

@@ -1,15 +1,24 @@
-import './profile.css';
 import { IProfileFormInput } from '../../components/profileFormInput';
+import './profile.css';
 export { default as ProfilePage } from './profile.hbs?raw';
 
-const user = {
+interface IUser {
+    email: string;
+    login: string;
+    first_name?: string;
+    second_name?: string;
+    display_name: string;
+    phone?: string;
+};
+
+const user: IUser = {
     email: 'pochta@yandex.ru',
     login: 'ivanivanov',
     first_name: 'Иван',
     second_name: 'Иванов',
     display_name: 'Ваня',
     phone: '+7 (909) 967 30 30',
-} as const;
+};
 
 const infoInputs = [
     {
@@ -68,6 +77,7 @@ const changePasswordInputs = [
 ];
 
 interface IProfilePageContext {
+    user: IUser;
     type: 'info' | 'changeInfo' | 'changePassword';
     inputs: IProfileFormInput[];
 }
@@ -83,6 +93,7 @@ export const getProfilePageContext = (
                 value: user[input.name] || '',
             }));
             return {
+                user,
                 type,
                 inputs,
             };
@@ -93,12 +104,14 @@ export const getProfilePageContext = (
                 value: user[input.name] || '',
             }));
             return {
+                user,
                 type,
                 inputs,
             };
         }
         case 'changePassword': {
             return {
+                user,
                 type,
                 inputs: changePasswordInputs,
             };

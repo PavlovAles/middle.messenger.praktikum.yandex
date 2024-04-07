@@ -5,10 +5,10 @@
     </div>
     <div class="profilePage__right">
         <div class="prifile__avatar">
-            {{> SetUserAvatarButton }}
+            {{> SetUserAvatarButton userName=user.display_name}}
         </div>
         <form class="prifileForm" id="profile-form">
-            <h1 class="prifileForm__title">Иван</h1>
+            <h1 class="prifileForm__title">{{user.display_name}}</h1>
             {{#each inputs}}
                 {{> ProfileFormInput }}
                 {{#unless @last}}
