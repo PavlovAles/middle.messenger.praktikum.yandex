@@ -1,0 +1,24 @@
+<li class="
+    messageListItem 
+    {{#if incoming}}messageListItem_incoming{{/if}}
+    {{#if image}}messageListItem_image{{/if}}
+">
+    {{#if text}}
+        {{text}}<span class="timeSpaceHolder"></span>
+    {{/if}}
+
+    {{#if image}}
+        <img src="{{image}}" class="image" alt="{{#if imageAlt}}{{imageAlt}}{{/if}}"/>
+    {{/if}}
+
+    <div class="time {{#if image}}time_image{{/if}}">
+        {{#unless incoming}}
+            {{#if readed}}
+                {{> Icon small=true icon="read" }}
+            {{else if sended}}
+                {{> Icon small=true icon="unread" }}
+            {{/if}}
+        {{/unless}}    
+        {{time}}
+    </div>
+</li>

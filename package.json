@@ -1,0 +1,28 @@
+{
+    "name": "messenger",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite --port 3000",
+        "build": "tsc && vite build",
+        "start": "npm ci && npm run build && node server.cjs",
+        "preview": "vite preview",
+        "prettier:fix": "prettier --write \"src/**/*.{ts,css}\""
+    },
+    "devDependencies": {
+        "express": "^4.19.2",
+        "prettier": "3.2.5",
+        "typescript": "^5.2.2",
+        "vite": "^5.2.0"
+    },
+    "dependencies": {
+        "handlebars": "^4.7.8"
+    },
+    "optionalDependencies": {
+        "@rollup/rollup-linux-x64-gnu": "4.6.1"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}

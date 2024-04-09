@@ -1,0 +1,32 @@
+{{> Icons }}
+<main class="profilePage">
+    <div class="profilePage__left">
+        {{> Button type="button" variant="primary" fill="solid" icon="arrow-left" asIconButton=true}}
+    </div>
+    <div class="profilePage__right">
+        <div class="prifile__avatar">
+            {{> SetUserAvatarButton userName=user.display_name}}
+        </div>
+        <form class="prifileForm" id="profile-form">
+            <h1 class="prifileForm__title">{{user.display_name}}</h1>
+            {{#each inputs}}
+                {{> ProfileFormInput }}
+                {{#unless @last}}
+                    {{> SeparatorLine}}
+                {{/unless}}
+            {{/each}}
+        </form>
+        <div class="prifileForm_buttons">
+            {{#ifEquals type "info"}}
+                {{> Button type="button" variant="primary" fill="link" text="Изменить данные" align="left" }}
+                {{> SeparatorLine}}
+                {{> Button type="button" variant="primary" fill="link" text="Изменить пароль" align="left" }}
+                {{> SeparatorLine}}
+                {{> Button type="button" variant="danger" fill="link" text="Выйти" align="left" }}
+            {{/ifEquals}}
+            {{#ifNotEquals type "info"}}
+                {{> Button type="button" variant="primary" fill="solid" text="Сохранить" align="center" }}
+            {{/ifNotEquals}}
+        </div>
+    </div>
+</main>

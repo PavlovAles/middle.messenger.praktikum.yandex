@@ -1,0 +1,15 @@
+{{#> ShadowBox }}
+    <form class="form" id="{{id}}">
+        <h2 class="form__title">{{title}}</h2>
+        <fieldset class="form__fieldset">
+            {{#each inputs}}
+                {{> Input}}
+            {{/each}}
+        </fieldset>
+        <div class="form__bottom">
+            {{#each buttons}}
+                {{> Button}}
+            {{/each}}
+        </div>
+    </form>
+{{/ShadowBox}}

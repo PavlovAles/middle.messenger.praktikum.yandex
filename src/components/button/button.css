@@ -1,0 +1,122 @@
+.mainButton {
+    width: 100%;
+    height: 32px;
+    padding: 12px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: var(--br);
+    font: var(--text-text);
+    transition: background 0.3s ease-out;
+}
+
+.mainButton_with-icon-only {
+    width: 32px;
+    border-radius: 50%;
+}
+
+.mainButton_icon-last .mainButton__icon {
+    order: 1;
+}
+
+.mainButton_align_left {
+    justify-content: flex-start;
+}
+
+.mainButton_align_center {
+    justify-content: center;
+}
+
+.mainButton_align_right {
+    justify-content: flex-end;
+}
+
+.mainButton_variant_primary {
+    --color: var(--color-primary);
+    --color-rgb: var(--color-primary-rgb);
+    --tint: var(--color-primary-tint);
+    --shade: var(--color-primary-shade);
+}
+
+.mainButton_variant_medium {
+    --color: var(--color-medium);
+    --color-rgb: var(--color-medium-rgb);
+    --tint: var(--color-medium-tint);
+    --shade: var(--color-medium-shade);
+}
+
+.mainButton_variant_success {
+    --color: var(--color-success);
+    --color-rgb: var(--color-success-rgb);
+    --tint: var(--color-success-tint);
+    --shade: var(--color-success-shade);
+}
+
+.mainButton_variant_danger {
+    --color: var(--color-danger);
+    --color-rgb: var(--color-danger-rgb);
+    --tint: var(--color-danger-tint);
+    --shade: var(--color-danger-shade);
+}
+
+.mainButton_fill_solid {
+    background: var(--color);
+    color: var(--color-light);
+
+    &:hover {
+        background: var(--tint);
+    }
+
+    &:active {
+        background: var(--shade);
+    }
+}
+
+.mainButton_fill_outline {
+    background: var(--color--light);
+    color: var(--color);
+    border: 1px solid var(--color);
+
+    &:hover {
+        background: rgba(var(--color-rgb), 0.2);
+    }
+
+    &:active {
+        background: rgba(var(--color-rgb), 0.5);
+    }
+}
+
+.mainButton_fill_ghost {
+    background: var(--color--light);
+    color: var(--color);
+
+    &:hover {
+        background: rgba(var(--color-rgb), 0.2);
+    }
+
+    &:active {
+        background: rgba(var(--color-rgb), 0.5);
+    }
+}
+
+.mainButton_fill_link {
+    padding: 0;
+    color: var(--color);
+
+    &:hover {
+        color: var(--tint);
+        text-decoration: underline;
+    }
+
+    &:active {
+        color: var(--shade);
+    }
+}

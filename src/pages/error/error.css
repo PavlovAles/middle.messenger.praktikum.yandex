@@ -1,0 +1,16 @@
+.errorPage {
+    height: 100dvh;
+    display: grid;
+    place-items: center;
+    align-content: center;
+    justify-content: center;
+
+    .errorPage__code {
+        font: var(--text-h1);
+    }
+
+    .errorPage__text {
+        margin-bottom: 70px;
+        font: var(--text-h2);
+    }
+}

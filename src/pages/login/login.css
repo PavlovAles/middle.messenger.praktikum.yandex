@@ -1,0 +1,20 @@
+.loginPage {
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .loginPage__left {
+        background: var(--color-gradient);
+    }
+
+    .loginPage__right {
+        display: grid;
+
+        .loginPage__form {
+            min-height: 460px;
+            width: calc(100% - 24px);
+            max-width: 340px;
+            place-self: center;
+        }
+    }
+}

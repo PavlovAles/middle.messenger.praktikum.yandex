@@ -1,0 +1,8 @@
+<div class="chatSettingsForm">
+    {{#ifNotEquals type 'changeGroupAvatar'}}
+        {{> Form (getChatSettingsFormProps type) }}
+    {{/ifNotEquals}}
+    {{#ifEquals type 'changeGroupAvatar'}}
+        {{> ChangeAvatarForm title="Загрузите файл" }}
+    {{/ifEquals}}
+</div>

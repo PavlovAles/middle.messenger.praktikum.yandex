@@ -1,0 +1,9 @@
+<div class="chatSettings">
+    {{#> ShadowBox smallPadding=true}}
+    <ul class="chatSettings-list">
+        {{#each (getChatSettingsButtonList type) }}
+            {{> Button }}
+        {{/each}}
+    </ul>
+    {{/ShadowBox}}
+</div>

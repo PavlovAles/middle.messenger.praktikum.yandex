@@ -1,0 +1,22 @@
+<button type="button" class="chatListItem {{#if active}}chatListItem_active{{/if}}">
+    <div class="chatListItem__avatar">
+        {{> Avatar src=chatAvatar name=chatName}}
+    </div>
+    <div class="wrapper">
+        <div class="chatListItem__top">
+            <h3 class="chatName">{{chatName}}</h3>
+            <p class="date">{{lastMessage.date}}</p>
+        </div>
+        <div class="chatListItem__bottom">
+            <p class="lastMessage">
+                {{#if lastMessage.from}}
+                    <span class="lastMessage__from">{{lastMessage.from}}:</span>
+                {{/if}}
+                <span class="lastMessage__text">{{lastMessage.text}}</span>
+            </p>
+            {{#if newMessagesCount}}
+                <p class="new-messages-counter">{{newMessagesCount}}</p>
+            {{/if}}
+        </div>
+    </div>
+</li>

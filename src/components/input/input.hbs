@@ -1,0 +1,13 @@
+<div class="form-input-wrapper">
+    <label class="form-input">
+        <input 
+            class="form-input__input {{#if errorMessage}}form-input__input_error{{/if}}" 
+            type="{{type}}" 
+            name="{{name}}" 
+            {{#if required}}required{{/if}}
+            placeholder=""
+        />
+        <div class="form-input__label">{{label}}</div>
+    </label>
+    <div class="form-input-wrapper__error">{{errorMessage}}</div>
+</div>
