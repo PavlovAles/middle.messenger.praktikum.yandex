@@ -28,7 +28,7 @@
 }
 
 .chatListItem_active {
-    background-color: rgb(var(--color-primary-rgb) 0.2);
+    background-color: rgba(var(--color-primary-rgb), 0.2);
 }
 
 .chatListItem__avatar {

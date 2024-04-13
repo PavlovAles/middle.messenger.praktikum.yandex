@@ -1,9 +1,8 @@
 {
     "extends": "stylelint-config-standard",
     "rules": {
-        "selector-class-pattern": ".+"
+        "selector-class-pattern": ".+",
+        "color-function-notation": "legacy"
     },
-    "ignoreFiles": [
-        "dist/*"
-    ]
+    "ignoreFiles": ["dist/*"]
 }

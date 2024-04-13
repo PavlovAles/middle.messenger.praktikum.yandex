@@ -22,7 +22,7 @@
     opacity: 0;
     font: var(--text-text);
     color: var(--color-light);
-    background-color: rgb(var(--color-medium-rgb) 0.8);
+    background-color: rgba(var(--color-medium-rgb), 0.8);
     transition: opacity 0.3s ease-in-out;
 }
 
