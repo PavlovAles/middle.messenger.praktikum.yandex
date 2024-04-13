@@ -6,13 +6,24 @@
     "scripts": {
         "dev": "vite --port 3000",
         "build": "tsc && vite build",
+        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0 & stylelint \"src/**/*.css\"",
+        "lint:fix": "eslint . --ext ts,tsx --fix & stylelint \"src/**/*.css\" --fix",
         "start": "npm ci && npm run build && node server.cjs",
-        "preview": "vite preview",
-        "prettier:fix": "prettier --write \"src/**/*.{ts,css}\""
+        "preview": "vite preview"
     },
     "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^7.6.0",
+        "@typescript-eslint/parser": "^7.6.0",
+        "eslint": "^8.57.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-airbnb-typescript": "^18.0.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-import-resolver-typescript": "^3.6.1",
+        "eslint-plugin-prettier": "^5.1.3",
         "express": "^4.19.2",
         "prettier": "3.2.5",
+        "stylelint": "^16.3.1",
+        "stylelint-config-standard": "^36.0.0",
         "typescript": "^5.2.2",
         "vite": "^5.2.0"
     },
