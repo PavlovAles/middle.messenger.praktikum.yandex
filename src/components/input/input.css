@@ -2,10 +2,6 @@
     padding: 15px 0;
     position: relative;
 
-    &:first-of-type .form-input {
-        display: block;
-    }
-
     .form-input {
         display: block;
         position: relative;
@@ -38,12 +34,6 @@
             color: var(--color-danger);
         }
 
-        .form-input__input:focus ~ .form-input__label,
-        .form-input__input:not(:placeholder-shown) ~ .form-input__label {
-            font: var(--text-caption);
-            transform: translateY(-12px);
-        }
-
         .form-input__label {
             position: absolute;
             left: 2px;
@@ -52,6 +42,16 @@
             color: var(--color-medium);
             transition: all 0.3s ease-in-out;
         }
+
+        .form-input__input:focus ~ .form-input__label,
+        .form-input__input:not(:placeholder-shown) ~ .form-input__label {
+            font: var(--text-caption);
+            transform: translateY(-12px);
+        }
+    }
+
+    &:first-of-type .form-input {
+        display: block;
     }
 
     .form-input-wrapper__error {

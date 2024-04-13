@@ -1,4 +1,5 @@
 import './profileFormInput.css';
+
 export { default as ProfileFormInput } from './profileFormInput.hbs?raw';
 export interface IProfileFormInput {
     label: string;

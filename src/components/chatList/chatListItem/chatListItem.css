@@ -28,7 +28,7 @@
 }
 
 .chatListItem_active {
-    background-color: rgba(var(--color-primary-rgb), 0.2);
+    background-color: rgb(var(--color-primary-rgb) 0.2);
 }
 
 .chatListItem__avatar {
@@ -57,7 +57,6 @@
         -ms-line-clamp: 1;
         -webkit-line-clamp: 1;
         line-clamp: 1;
-        text-overflow: ellipsis;
         -webkit-box-orient: vertical;
         text-overflow: ellipsis;
         overflow: hidden;

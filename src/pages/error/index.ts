@@ -1,4 +1,5 @@
 import './error.css';
+
 export { default as ErrorPage } from './error.hbs?raw';
 
 export const getErrorPageContext = (code: '404' | '500') => {
@@ -7,10 +8,9 @@ export const getErrorPageContext = (code: '404' | '500') => {
             code,
             text: 'Не туда попали',
         };
-    } else {
-        return {
-            code,
-            text: 'Мы уже фиксим',
-        };
     }
+    return {
+        code,
+        text: 'Мы уже фиксим',
+    };
 };

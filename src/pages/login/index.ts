@@ -1,4 +1,5 @@
 import './login.css';
+
 export { default as LoginPage } from './login.hbs?raw';
 
 const loginInputs = [
@@ -101,14 +102,13 @@ export const getLoginPageContext = (type: 'login' | 'registration') => {
                 buttons: loginButtons,
             },
         };
-    } else {
-        return {
-            formConfig: {
-                title: 'Регистрация',
-                id: 'registration-form',
-                inputs: registrationInputs,
-                buttons: registrationButtons,
-            },
-        };
     }
+    return {
+        formConfig: {
+            title: 'Регистрация',
+            id: 'registration-form',
+            inputs: registrationInputs,
+            buttons: registrationButtons,
+        },
+    };
 };

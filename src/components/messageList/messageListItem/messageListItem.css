@@ -7,7 +7,7 @@
     border-radius: var(--br);
     border-bottom-right-radius: 0;
     background-color: var(--color-primary-tint);
-    background-color: rgba(var(--color-primary-rgb), 0.2);
+    background-color: rgb(var(--color-primary-rgb) 0.2);
 }
 
 .messageListItem_incoming {
@@ -48,9 +48,9 @@
     right: 11px;
     font:
         400 9px/1 'PT Sans',
-        'Arial',
+        Arial,
         'Helvetica Neue',
-        'Helvetica',
+        Helvetica,
         sans-serif;
 }
 

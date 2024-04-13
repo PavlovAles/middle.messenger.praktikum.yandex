@@ -1,5 +1,6 @@
 import { IProfileFormInput } from '../../components/profileFormInput';
 import './profile.css';
+
 export { default as ProfilePage } from './profile.hbs?raw';
 
 interface IUser {
@@ -87,7 +88,7 @@ export const getProfilePageContext = (
 ): IProfilePageContext => {
     switch (type) {
         case 'info': {
-            const inputs = infoInputs.map(input => ({
+            const inputs = infoInputs.map((input) => ({
                 ...input,
                 disabled: true,
                 value: user[input.name] || '',
@@ -99,7 +100,7 @@ export const getProfilePageContext = (
             };
         }
         case 'changeInfo': {
-            const inputs = infoInputs.map(input => ({
+            const inputs = infoInputs.map((input) => ({
                 ...input,
                 value: user[input.name] || '',
             }));
@@ -116,8 +117,9 @@ export const getProfilePageContext = (
                 inputs: changePasswordInputs,
             };
         }
-        default:
+        default: {
             const foo: never = type;
             return foo;
+        }
     }
 };

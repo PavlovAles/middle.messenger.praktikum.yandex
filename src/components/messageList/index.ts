@@ -1,5 +1,6 @@
 import Handlebars from 'handlebars';
 import './messageList.css';
+
 export { default as MessageList } from './messageList.hbs?raw';
 
 const testData = [

@@ -1,6 +1,6 @@
 import * as Pages from '../pages';
-
-export const pages: Record<string, any[]> = {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+export const pages: Record<string, [string] | [string, any]> = {
     'nav': [Pages.NavigatePage],
     'test': [Pages.TestPage],
     'main': [Pages.MainPage, Pages.getMainPageContext()],

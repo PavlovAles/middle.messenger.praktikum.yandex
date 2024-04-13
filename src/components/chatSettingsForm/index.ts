@@ -1,5 +1,6 @@
 import Handlebars from 'handlebars';
 import './chatSettingsForm.css';
+
 export { default as ChatSettingsForm } from './chatSettingsForm.hbs?raw';
 
 const addUserConfig = {

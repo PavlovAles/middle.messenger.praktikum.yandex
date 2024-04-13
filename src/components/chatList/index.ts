@@ -1,5 +1,6 @@
 import Handlebars from 'handlebars';
 import './chatList.css';
+
 export { default as ChatList } from './chatList.hbs?raw';
 
 const testData = [
