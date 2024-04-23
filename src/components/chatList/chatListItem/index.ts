@@ -1,3 +1,3 @@
 import './chatListItem.css';
 
-export { default as ChatListItem } from './chatListItem.hbs?raw';
+export { ChatListItem } from './chatListItem';

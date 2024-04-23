@@ -56,28 +56,15 @@
     --color-dark-contrast-rgb: 255, 255, 255;
     --color-dark-shade: #292929;
     --color-dark-tint: #444;
-    --color-gradient: linear-gradient(
-        to top,
-        #4186fd,
-        #00a3df,
-        #00c0a2,
-        #2dd55b
-    );
+    --color-gradient: linear-gradient(to top, #4186fd, #00a3df, #00c0a2, #2dd55b);
     --shadow: 0px 0.266px 3.192px 0px rgba(37, 37, 37, 3%),
-        0px 0.893px 10.721px 0px rgba(37, 37, 37, 4%),
-        0px 4px 48px 0px rgba(37, 37, 37, 7%);
-    --text-h1: 700 22px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica',
-        sans-serif;
-    --text-h2: 700 20px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica',
-        sans-serif;
-    --text-h3: 700 18px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica',
-        sans-serif;
-    --text-h4: 700 16px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica',
-        sans-serif;
-    --text-text: 400 16px/1 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica',
-        sans-serif;
-    --text-caption: 400 13px/1.2 'PT Sans', 'Arial', 'Helvetica Neue',
-        'Helvetica', sans-serif;
+        0px 0.893px 10.721px 0px rgba(37, 37, 37, 4%), 0px 4px 48px 0px rgba(37, 37, 37, 7%);
+    --text-h1: 700 22px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+    --text-h2: 700 20px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+    --text-h3: 700 18px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+    --text-h4: 700 16px/1.4 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+    --text-text: 400 16px/1 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
+    --text-caption: 400 13px/1.2 'PT Sans', 'Arial', 'Helvetica Neue', 'Helvetica', sans-serif;
     --br: 12px;
 }
 
@@ -111,4 +98,17 @@ ul {
 li {
     padding: 0;
     list-style: none;
+}
+
+.shadow-box {
+    height: 100%;
+    min-height: inherit;
+    padding: 30px;
+    border-radius: var(--br);
+    box-shadow: var(--shadow);
+    background: #fff;
+}
+
+.shadow-box_small-padding {
+    padding: 15px;
 }
