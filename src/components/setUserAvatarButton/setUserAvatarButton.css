@@ -13,10 +13,6 @@
     outline: inherit;
 }
 
-.setUserAvatarButton:hover .setUserAvatarButton__overlay {
-    opacity: 1;
-}
-
 .setUserAvatarButton__overlay {
     padding: 20px;
     display: grid;
@@ -28,4 +24,8 @@
     color: var(--color-light);
     background-color: rgba(var(--color-medium-rgb), 0.8);
     transition: opacity 0.3s ease-in-out;
+}
+
+.setUserAvatarButton:hover .setUserAvatarButton__overlay {
+    opacity: 1;
 }

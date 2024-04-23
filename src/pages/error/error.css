@@ -2,8 +2,7 @@
     height: 100dvh;
     display: grid;
     place-items: center;
-    align-content: center;
-    justify-content: center;
+    place-content: center center;
 
     .errorPage__code {
         font: var(--text-h1);

@@ -1,0 +1,9 @@
+.chatSettings {
+    width: max-content;
+
+    .chatSettings-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+}

@@ -1,0 +1,15 @@
+.message-form {
+    flex-grow: 1;
+
+    .message-form__input {
+        height: 32px;
+        width: 100%;
+        padding: 4px 18px;
+        background-color: var(--color-light-shade);
+        font: var(--text-text);
+        color: var(--color-dark);
+        border-radius: 17px;
+        border: none;
+        outline: none;
+    }
+}
