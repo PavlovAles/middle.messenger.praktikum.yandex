@@ -27,6 +27,7 @@ module.exports = {
     },
     plugins: ['@typescript-eslint', 'prettier'],
     rules: {
+        'no-underscore-dangle': 'off',
         'func-names': 'off',
         'import/extensions': 'off',
         'import/prefer-default-export': 'off',
@@ -34,9 +35,24 @@ module.exports = {
         'object-curly-newline': 'off',
         'arrow-body-style': 'off',
         'comma-dangle': 'off',
+        'prefer-spread': 'off',
         'quote-props': ['error', 'consistent-as-needed'],
+        'operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
+        'prefer-destructuring': ['error', { object: false }],
+        'no-param-reassign': [
+            2,
+            { props: true, ignorePropertyModificationsFor: ['proxyTarget', 'acc'] },
+        ],
+        'lines-between-class-members': [
+            'error',
+            {
+                enforce: [{ blankLine: 'always', prev: 'method', next: 'method' }],
+            },
+        ],
+        'class-methods-use-this': 'off',
         '@typescript-eslint/comma-dangle': 'off',
         '@typescript-eslint/indent': ['error', 4],
-        'operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
+        '@typescript-eslint/no-this-alias': ['error', { allowDestructuring: false }],
+        '@typescript-eslint/lines-between-class-members': 'off',
     },
 };
