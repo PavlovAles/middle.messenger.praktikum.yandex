@@ -5,7 +5,7 @@ module.exports = {
     },
     extends: ['airbnb/base', 'airbnb-typescript/base', 'plugin:@typescript-eslint/recommended'],
     overrides: [],
-    ignorePatterns: ['dist', 'node_modules', '.eslintrc.cjs', 'vite.config.ts'],
+    ignorePatterns: ['dist', 'node_modules', '.eslintrc.cjs', 'vite.config.js'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 'latest',
