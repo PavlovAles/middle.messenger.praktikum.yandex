@@ -26,9 +26,10 @@
         gap: 14px;
     }
 
-    .separatorLine {
-        height: 1px;
-        margin: 10px 0;
-        background: var(--color-medium-tint);
-    }    
 }
+
+.separator-line {
+    height: 1px;
+    margin: 10px 0;
+    background: var(--color-medium-tint);
+}    

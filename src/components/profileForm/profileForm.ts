@@ -133,7 +133,7 @@ export class ProfileForm extends Block<ProfileFormProps> {
             (this.props.type === 'changePassword' && this.props.changePasswordInputsKeys) ||
             [];
         const renderInputs = inputs
-            .map((key) => `{{{${key}}}} <div class="separatorLine"></div>`)
+            .map((key) => `{{{${key}}}} <div class="separator-line"></div>`)
             .join('');
 
         const renderButtons =
@@ -142,9 +142,9 @@ export class ProfileForm extends Block<ProfileFormProps> {
                 : (
                     `
                     {{{ ChangeInfoButton }}}
-                    <div class="separatorLine"></div>
+                    <div class="separator-line"></div>
                     {{{ ChangePasswordButton }}}
-                    <div class="separatorLine"></div>
+                    <div class="separator-line"></div>
                     {{{ LogoutButton }}}
                     `
                 );
