@@ -22,14 +22,16 @@ export class LoginPage extends Block<LoginProps> {
 
     render(): string {
         return `
-            <main class="loginPage">
-                <div class="loginPage__left"></div>
-                <div class="loginPage__right">
-                    <div class="loginPage__form">
-                        {{{ LoginForm }}}
+            <div>
+                <main class="loginPage">
+                    <div class="loginPage__left"></div>
+                    <div class="loginPage__right">
+                        <div class="loginPage__form">
+                            {{{ LoginForm }}}
+                        </div>
                     </div>
-                </div>
-            </main>
+                </main>
+            </div>
         `;
     }
 }

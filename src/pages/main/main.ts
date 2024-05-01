@@ -1,3 +1,10 @@
+import Block, { CommonProps } from '../../core/Block';
+import { router } from '../../utils/router';
+import { testChatListData, testMessageListData } from '../../utils/mocks';
+import { AttachmentMenu } from '../../components/attachmentMenu';
+import { ChatSearchForm } from '../../components/chatSearchForm';
+import { MessageForm } from '../../components/messageForm';
+import { SettingsMenu } from '../../components/settingsMenu';
 import {
     Avatar,
     Button,
@@ -6,14 +13,8 @@ import {
     MessageList,
     MessageListItem,
 } from '../../components';
-import { AttachmentMenu } from '../../components/attachmentMenu';
-import { ChatSearchForm } from '../../components/chatSearchForm';
-import { MessageForm } from '../../components/messageForm';
-import { SettingsMenu } from '../../components/settingsMenu';
-import Block, { CommonProps } from '../../core/Block';
-import { testChatListData, testMessageListData } from '../../utils/mocks';
 
-export interface MainPageProps extends CommonProps {}
+export interface MainPageProps extends CommonProps { }
 
 export class MainPage extends Block<MainPageProps> {
     constructor(props: MainPageProps) {
@@ -28,6 +29,9 @@ export class MainPage extends Block<MainPageProps> {
                 text: 'Профиль',
                 align: 'right',
                 iconLast: true,
+                events: {
+                    click: () => router.go('/profile')
+                }
             }),
             CreateGroupButton: new Button({
                 type: 'button',
@@ -69,37 +73,39 @@ export class MainPage extends Block<MainPageProps> {
 
     render() {
         return `
-          <main class="main">
-            <div class="main__left">
-                <div class="button-wrapper">
-                    {{{ GoToProfileButton }}}
+            <div>
+            <main class="main">
+                <div class="main__left">
+                    <div class="button-wrapper">
+                        {{{ GoToProfileButton }}}
+                    </div>
+                    {{{ ChatSearchForm }}}
+                    <div class="button-wrapper">
+                        {{{ CreateGroupButton }}}
+                    </div>
+                    {{{ ChatList }}}
                 </div>
-                {{{ ChatSearchForm }}}
-                <div class="button-wrapper">
-                    {{{ CreateGroupButton }}}
-                </div>
-                {{{ ChatList }}}
-            </div>
-            <div class="main__right">
-                <div class="feed">
-                    <div class="feed__top">
-                        <div class="header">
-                            <div class="header__avatar">
-                                {{{ ChatAvatar }}}
+                <div class="main__right">
+                    <div class="feed">
+                        <div class="feed__top">
+                            <div class="header">
+                                <div class="header__avatar">
+                                    {{{ ChatAvatar }}}
+                                </div>
+                                <h1 class="header__text">{{chatName}}</h2>
                             </div>
-                            <h1 class="header__text">{{chatName}}</h2>
+                            {{{ SettingMenu }}}
                         </div>
-                        {{{ SettingMenu }}}
-                    </div>
-                    {{{ MessageList }}}
-                    <div class="feed__bottom">
-                        {{{ AttachmentMenu }}}
-                        {{{ MessageFormProps }}}
-                        {{{ SendMessageButton }}}
+                        {{{ MessageList }}}
+                        <div class="feed__bottom">
+                            {{{ AttachmentMenu }}}
+                            {{{ MessageFormProps }}}
+                            {{{ SendMessageButton }}}
+                        </div>
                     </div>
                 </div>
+            </main>
             </div>
-          </main>
         `;
     }
 }

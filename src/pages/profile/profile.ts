@@ -3,6 +3,7 @@ import { Modal } from '../../components/modal';
 import { User } from '../../types/user';
 import { Button, ChangeAvatarForm, SetUserAvatarButton } from '../../components';
 import { ProfileForm } from '../../components/profileForm';
+import { router } from '../../utils/router';
 
 interface ProfilePageProps extends CommonProps {
     user: User;
@@ -16,6 +17,9 @@ export class ProfilePage extends Block<ProfilePageProps> {
             fill: 'solid',
             icon: 'arrow-left',
             asIconButton: true,
+            events: {
+                click: this.handleGoBackToMain.bind(this),
+            }
         });
 
         const SetUserAvatarButtonComponent = new SetUserAvatarButton({
@@ -54,20 +58,27 @@ export class ProfilePage extends Block<ProfilePageProps> {
         this.children.AvatarFormModal.setProps({ open: true });
     }
 
+    handleGoBackToMain() {
+        router.go('/main');
+        this.children.Form.setProps({ type: 'info' });
+    }
+
     render() {
         return `
-            <main class="profilePage">
-                <div class="profilePage__left">
-                    {{{ BackToMainButton }}}
-                </div>
-                <div class="profilePage__right">
-                    <div class="prifile__avatar">
-                        {{{ SetUserAvatarButtonComponent }}}
+            <div>
+                <main class="profilePage">
+                    <div class="profilePage__left">
+                        {{{ BackToMainButton }}}
                     </div>
-                    {{{ Form }}}
-                </div>
-                {{{ AvatarFormModal }}}
-            </main>
+                    <div class="profilePage__right">
+                        <div class="prifile__avatar">
+                            {{{ SetUserAvatarButtonComponent }}}
+                        </div>
+                        {{{ Form }}}
+                    </div>
+                    {{{ AvatarFormModal }}}
+                </main>
+            </div>
         `;
     }
 }

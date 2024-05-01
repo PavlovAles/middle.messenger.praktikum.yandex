@@ -1,6 +1,8 @@
 import { Button, ButtonProps } from '../../components/button/button';
 import { FormProps } from '../../components/form/form';
 import { Input, InputProps } from '../../components/form/input/input';
+import { router } from '../../utils/router';
+
 import {
     emailValidationRules,
     loginValidationRules,
@@ -83,6 +85,9 @@ const loginButtons: ButtonProps[] = [
         variant: 'primary',
         fill: 'link',
         text: 'Нет аккаунта?',
+        events: {
+            click: () => router.go('/registration')
+        }
     },
 ];
 
@@ -98,6 +103,9 @@ const registrationButtons: ButtonProps[] = [
         variant: 'primary',
         fill: 'link',
         text: 'Войти',
+        events: {
+            click: () => router.go('/login')
+        }
     },
 ];
 
