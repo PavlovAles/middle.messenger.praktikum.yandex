@@ -1,0 +1,11 @@
+.modal {
+    display: none;
+    place-content: center;
+    position: fixed;
+    inset: 0;
+    background: rgba(var(--color-dark-rgb), 0.2);
+}
+
+.modal_open {
+    display: grid;
+}

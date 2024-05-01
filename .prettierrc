@@ -1,7 +1,11 @@
 {
+    "useTabs": false,
     "tabWidth": 4,
+    "printWidth": 100,
+    "trailingComma": "es5",
     "semi": true,
     "singleQuote": true,
-    "arrowParens": "avoid",
-    "quoteProps": "consistent"
+    "jsxSingleQuote": true,
+    "quoteProps": "consistent",
+    "arrowParens": "always"
 }

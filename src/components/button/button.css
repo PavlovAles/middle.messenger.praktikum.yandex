@@ -10,7 +10,6 @@
     background: none;
     color: inherit;
     border: none;
-    font: inherit;
     cursor: pointer;
     outline: inherit;
     border-radius: var(--br);
@@ -81,7 +80,6 @@
 }
 
 .mainButton_fill_outline {
-    background: var(--color--light);
     color: var(--color);
     border: 1px solid var(--color);
 
@@ -95,7 +93,6 @@
 }
 
 .mainButton_fill_ghost {
-    background: var(--color--light);
     color: var(--color);
 
     &:hover {
