@@ -1,3 +1,4 @@
 import Router from '../core/Router';
+import store from '../core/store';
 
-export const router = new Router('#app');
+export default new Router('#app', store);
