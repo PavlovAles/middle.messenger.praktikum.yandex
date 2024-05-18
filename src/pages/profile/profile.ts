@@ -63,7 +63,7 @@ class ProfilePage extends Block<ProfilePageProps> {
 
     handleGoBackToMain() {
         if (this.props.type === 'info') {
-            router.go('/chats');
+            router.go('/messenger');
         }
         profileFormController.changeType('info');
     }
