@@ -53,7 +53,7 @@ class ChatsPage extends Block<ChatsPageProps> {
 
     protected componentDidMount(): void {
         if (!this.props.userId) {
-            router.go('/login');
+            router.go('/sign-in');
         }
     }
 
