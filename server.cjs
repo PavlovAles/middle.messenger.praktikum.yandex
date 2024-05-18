@@ -9,7 +9,27 @@ app.get('/', (_, res) => {
     res.sendFile(`${__dirname}/dist/index.html`);
 });
 
-app.get('*', (_, res) => {
+app.get('/sign-up', (_, res) => {
+    res.sendFile(`${__dirname}/dist/index.html`);
+});
+
+app.get('/sign-in', (_, res) => {
+    res.sendFile(`${__dirname}/dist/index.html`);
+});
+
+app.get('/messenger', (_, res) => {
+    res.sendFile(`${__dirname}/dist/index.html`);
+});
+
+app.get('/settings', (_, res) => {
+    res.sendFile(`${__dirname}/dist/index.html`);
+});
+
+app.get('/500', (_, res) => {
+    res.sendFile(`${__dirname}/dist/index.html`);
+});
+
+app.get('/404', (_, res) => {
     res.sendFile(`${__dirname}/dist/index.html`);
 });
 
