@@ -1,14 +1,23 @@
+import authController from './controllers/authController';
 import * as Pages from './pages';
-import { testUser } from './utils/mocks';
-import { router } from './utils/router';
+import router from './utils/router';
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    await authController.getUser();
     router
-        .use('/main', Pages.MainPage)
-        .use('/login', Pages.LoginPage, { type: 'login' })
-        .use('/registration', Pages.LoginPage, { type: 'registration' })
-        .use('/profile', Pages.ProfilePage, { type: 'info', user: testUser })
-        .use('/404', Pages.ErrorPage, { code: 404 })
-        .use('/500', Pages.ErrorPage, { code: 500 })
+        .use('/', Pages.MainPage)
+        .use('/chats', Pages.MainPage, { protectedRoute: true, mainPageRoute: true })
+        .use('/sign-in', Pages.LoginPage, {
+            blockProps: { type: 'login' },
+            leaveIfIsAuth: true,
+            loginRoute: true,
+        })
+        .use('/sign-up', Pages.LoginPage, {
+            blockProps: { type: 'registration' },
+            leaveIfIsAuth: true,
+        })
+        .use('/settings', Pages.ProfilePage, { protectedRoute: true })
+        .use('/404', Pages.ErrorPage, { blockProps: { code: 404 }, notFoundRoute: true })
+        .use('/500', Pages.ErrorPage, { blockProps: { code: 500 } })
         .start();
 });
