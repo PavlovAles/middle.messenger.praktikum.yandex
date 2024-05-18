@@ -1,13 +1,14 @@
 import Block, { CommonProps } from '../../../core/Block';
+import { MyStoreFormNameFields } from '../../../core/store';
 
-interface InputProps extends CommonProps {
+interface InputFieldProps extends CommonProps {
     type: string;
-    name: string;
+    name: MyStoreFormNameFields;
     required?: boolean;
     errorMessage?: string;
 }
 
-export class InputField extends Block<InputProps> {
+export class InputField extends Block<InputFieldProps> {
     render() {
         return `
             <input 
@@ -15,6 +16,7 @@ export class InputField extends Block<InputProps> {
                 type="{{type}}" 
                 name="{{name}}" 
                 {{#if required}}required{{/if}}
+                value="{{value}}"
                 placeholder=""
             />
         `;

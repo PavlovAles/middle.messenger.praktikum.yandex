@@ -1,51 +1,55 @@
-type ValidationRule = (value: string) => boolean;
+type Rule = (value: string) => boolean;
+export type ValidationRule = {
+    rule: Rule;
+    message: string;
+};
 
-const validNameSymbols: ValidationRule = (value) => {
+export const validNameSymbols: Rule = (value) => {
     const regexp = /^[A-ZА-ЯЁa-zA-ZA-ЯЁа-яё-]+$/;
     return regexp.test(value);
 };
 
-const validNameSpecialSymbols: ValidationRule = (value) => {
+export const validNameSpecialSymbols: Rule = (value) => {
     const regexp = /^[a-zA-ZA-ЯЁа-яё-]+$/;
     return regexp.test(value);
 };
 
-const validNameStartsWithCapital: ValidationRule = (value) => {
+export const validNameStartsWithCapital: Rule = (value) => {
     const regexp = /^[A-ZА-ЯЁ]/;
     return regexp.test(value);
 };
 
-const validLoginSpecialSymbols: ValidationRule = (value) => {
+export const validLoginSpecialSymbols: Rule = (value) => {
     const regexp = /^[a-zA-Z0-9_-]+$/;
     return regexp.test(value);
 };
 
-const noCyrillicSymbols: ValidationRule = (value) => {
+export const noCyrillicSymbols: Rule = (value) => {
     const regexp = /^[^А-Яа-яЁё]+$/;
     return regexp.test(value);
 };
 
-const noNumbersOnly: ValidationRule = (value) => {
+export const noNumbersOnly: Rule = (value) => {
     const regexp = /^[^0-9]+$/;
     return regexp.test(value);
 };
 
-const validEmail: ValidationRule = (value) => {
+export const validEmail: Rule = (value) => {
     const regexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return regexp.test(value);
 };
 
-const validPassword: ValidationRule = (value) => {
+export const validPassword: Rule = (value) => {
     const regexp = /^(?=.*[A-ZА-ЯЁ])(?=.*\d)/;
     return regexp.test(value);
 };
 
-const validPhone: ValidationRule = (value) => {
+export const validPhone: Rule = (value) => {
     const regexp = /^\+?\d+$/;
     return regexp.test(value);
 };
 
-const validLength: (min: number, max: number) => ValidationRule = (min, max) => {
+export const validLength: (min: number, max: number) => Rule = (min, max) => {
     return (value) => value.length >= min && value.length <= max;
 };
 
@@ -101,6 +105,13 @@ export const nameValidationRules = [
     },
 ];
 
+export const displayNameValidationRules = [
+    {
+        rule: validLength(1, 20),
+        message: 'Имя должено содержать от 1 до 20 символов',
+    },
+];
+
 export const phoneValidationRules = [
     {
         rule: validPhone,
@@ -116,5 +127,12 @@ export const passwordConfimationRules = [
     {
         rule: validLength(8, 20),
         message: 'Повторите пароль',
+    },
+];
+
+export const chatNameValidationRules = [
+    {
+        rule: validLength(1, 50),
+        message: 'Введите название чата',
     },
 ];

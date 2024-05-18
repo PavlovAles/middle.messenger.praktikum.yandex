@@ -1,14 +1,16 @@
 import Block, { CommonProps } from '../../core/Block';
 import { Modal } from '../../components/modal';
-import { User } from '../../types/user';
 import { Button, ChangeAvatarForm, SetUserAvatarButton } from '../../components';
 import { ProfileForm } from '../../components/profileForm';
+import router from '../../utils/router';
+import userController from '../../controllers/userController';
+import { profileFormController } from '../../controllers/formControllers';
+import { connect } from '../../utils/connect';
 
 interface ProfilePageProps extends CommonProps {
-    user: User;
+    type?: 'info' | 'changeInfo' | 'changePassword';
 }
-
-export class ProfilePage extends Block<ProfilePageProps> {
+class ProfilePage extends Block<ProfilePageProps> {
     protected init(): void {
         const BackToMainButton = new Button({
             type: 'button',
@@ -16,11 +18,12 @@ export class ProfilePage extends Block<ProfilePageProps> {
             fill: 'solid',
             icon: 'arrow-left',
             asIconButton: true,
+            events: {
+                click: this.handleGoBackToMain.bind(this),
+            },
         });
 
         const SetUserAvatarButtonComponent = new SetUserAvatarButton({
-            src: this.props.user.avatar,
-            name: this.props.user.display_name,
             events: {
                 click: this.handleSetUserAvatarButtonClick.bind(this),
             },
@@ -28,16 +31,13 @@ export class ProfilePage extends Block<ProfilePageProps> {
 
         const Form = new ProfileForm({
             type: 'info',
-            user: this.props.user,
-            onSubmit: (values) => {
-                // eslint-disable-next-line no-console
-                console.log(values);
-            },
         });
 
         const AvatarFormModal = new Modal({
+            onClose: this.handleModalClose.bind(this),
             Content: new ChangeAvatarForm({
                 title: 'Загрузите файл',
+                onSubmit: this.handleChangeAvatarSubmit.bind(this),
             }),
         });
 
@@ -54,20 +54,45 @@ export class ProfilePage extends Block<ProfilePageProps> {
         this.children.AvatarFormModal.setProps({ open: true });
     }
 
+    handleModalClose() {
+        this.children.AvatarFormModal.children.Content.setProps({
+            error: '',
+            file: undefined,
+        });
+    }
+
+    handleGoBackToMain() {
+        if (this.props.type === 'info') {
+            router.go('/chats');
+        }
+        profileFormController.changeType('info');
+    }
+
+    handleChangeAvatarSubmit(data: FormData) {
+        userController.changeUserAvatar(data);
+    }
+
     render() {
         return `
-            <main class="profilePage">
-                <div class="profilePage__left">
-                    {{{ BackToMainButton }}}
-                </div>
-                <div class="profilePage__right">
-                    <div class="prifile__avatar">
-                        {{{ SetUserAvatarButtonComponent }}}
+            <div>
+                <main class="profilePage">
+                    <div class="profilePage__left">
+                        {{{ BackToMainButton }}}
                     </div>
-                    {{{ Form }}}
-                </div>
-                {{{ AvatarFormModal }}}
-            </main>
+                    <div class="profilePage__right">
+                        <div class="prifile__avatar">
+                            {{{ SetUserAvatarButtonComponent }}}
+                        </div>
+                        {{{ Form }}}
+                    </div>
+                    {{{ AvatarFormModal }}}
+                </main>
+            </div>
         `;
     }
 }
+
+const ConnectedProfilePage = connect<ProfilePageProps>(({ profilePage }) => ({
+    type: profilePage.type,
+}))(ProfilePage);
+export { ConnectedProfilePage as ProfilePage };

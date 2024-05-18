@@ -2,6 +2,7 @@ import Block, { CommonProps } from '../../core/Block';
 
 interface ModalProps extends CommonProps {
     open?: boolean;
+    onClose?: () => void;
     Content: Block<CommonProps>;
 }
 
@@ -14,7 +15,12 @@ export class Modal extends Block<ModalProps> {
     private onModalClick(e: Event) {
         if (e.target === e.currentTarget) {
             this.props.open = false;
+            this.props.onClose?.();
         }
+    }
+
+    protected componentWillUnmount(): void {
+        this.setProps({ open: false });
     }
 
     render() {
