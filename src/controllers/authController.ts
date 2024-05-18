@@ -27,7 +27,7 @@ class AuthController {
                 throw new Error(errorMessage);
             }
             await this.getUser();
-            router.go('/chats');
+            router.go('/messenger');
         } catch (error) {
             if (error instanceof Error) {
                 store.set('registrationForm.error', error.message);
@@ -58,7 +58,7 @@ class AuthController {
                 throw new Error(errorMessage);
             }
             await this.getUser();
-            router.go('/chats');
+            router.go('/messenger');
         } catch (error) {
             if (error instanceof Error) {
                 store.set('loginForm.error', error.message);

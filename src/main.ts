@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     await authController.getUser();
     router
         .use('/', Pages.MainPage)
-        .use('/chats', Pages.MainPage, { protectedRoute: true, mainPageRoute: true })
+        .use('/messenger', Pages.MainPage, { protectedRoute: true, mainPageRoute: true })
         .use('/sign-in', Pages.LoginPage, {
             blockProps: { type: 'login' },
             leaveIfIsAuth: true,
