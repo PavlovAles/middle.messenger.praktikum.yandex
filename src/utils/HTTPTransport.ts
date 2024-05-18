@@ -1,3 +1,6 @@
+import { API_HOST } from '../constants';
+import queryString from './queryString';
+
 const HTTP_METHODS = {
     GET: 'GET',
     POST: 'POST',
@@ -10,60 +13,84 @@ type HTTPMethod = keyof typeof HTTP_METHODS;
 
 type Options = {
     method: HTTPMethod;
-    data?: Record<string, unknown>;
+    data?: PlainObject | FormData;
     headers?: Record<string, string>;
     timeout?: number;
+    withCredentials?: boolean;
 };
 
 type OptionsWithoutMethod = Omit<Options, 'method'>;
 
-type HTTPTransportMethod = (url: string, options: OptionsWithoutMethod) => Promise<XMLHttpRequest>;
+type HTTPTransportMethod = (url: string, options?: OptionsWithoutMethod) => Promise<XMLHttpRequest>;
 
 export default class HTTPTransport {
-    static queryStringify(data: Record<string, unknown>): string {
-        return Object.keys(data).reduce((result, key, index) => {
-            return `${result}${index > 0 ? '&' : ''}${key}=${data[key]}`;
-        }, '?');
+    private path: string;
+
+    constructor(apiRoute: string) {
+        this.path = API_HOST + apiRoute;
     }
 
     get: HTTPTransportMethod = (url, options = {}) => {
-        return this.request(url, { ...options, method: HTTP_METHODS.GET }, options.timeout);
+        return this.request(
+            url,
+            { ...options, method: HTTP_METHODS.GET },
+            options.timeout,
+            options.withCredentials
+        );
     };
 
     post: HTTPTransportMethod = (url, options = {}) => {
-        return this.request(url, { ...options, method: HTTP_METHODS.POST }, options.timeout);
+        return this.request(
+            url,
+            { ...options, method: HTTP_METHODS.POST },
+            options.timeout,
+            options.withCredentials
+        );
     };
 
     put: HTTPTransportMethod = (url, options = {}) => {
-        return this.request(url, { ...options, method: HTTP_METHODS.PUT }, options.timeout);
+        return this.request(
+            url,
+            { ...options, method: HTTP_METHODS.PUT },
+            options.timeout,
+            options.withCredentials
+        );
     };
 
     delete: HTTPTransportMethod = (url, options = {}) => {
-        return this.request(url, { ...options, method: HTTP_METHODS.DELETE }, options.timeout);
+        return this.request(
+            url,
+            { ...options, method: HTTP_METHODS.DELETE },
+            options.timeout,
+            options.withCredentials
+        );
     };
 
     request(
         url: string,
         options: Options = { method: HTTP_METHODS.GET },
-        timeout = 5000
+        timeout = 5000,
+        withCredentials = true
     ): Promise<XMLHttpRequest> {
-        const { data, method, headers } = options;
+        const { data, method, headers = {} } = options;
 
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
 
-            let urlWithParams = url;
-            if (method === HTTP_METHODS.GET && data) {
-                urlWithParams = `${url}${HTTPTransport.queryStringify(data)}`;
+            let urlWithBasepathAndParams = this.path + url;
+            if (method === HTTP_METHODS.GET && data && !(data instanceof FormData)) {
+                urlWithBasepathAndParams = `${url}${queryString(data)}`;
             }
 
-            xhr.open(method, urlWithParams);
+            xhr.open(method, urlWithBasepathAndParams);
 
-            if (headers) {
-                Object.keys(headers).forEach((key) => {
-                    xhr.setRequestHeader(key, headers[key]);
-                });
+            if (data && !(data instanceof FormData)) {
+                headers['Content-Type'] = 'application/json';
             }
+
+            Object.keys(headers).forEach((key) => {
+                xhr.setRequestHeader(key, headers[key]);
+            });
 
             xhr.timeout = timeout;
 
@@ -71,15 +98,17 @@ export default class HTTPTransport {
                 resolve(xhr);
             };
 
+            xhr.withCredentials = withCredentials;
             xhr.onabort = reject;
-            xhr.onerror = reject;
+            xhr.onerror = () => reject();
             xhr.ontimeout = reject;
 
             if (method === HTTP_METHODS.GET || !data) {
                 xhr.send();
-            } else {
-                xhr.setRequestHeader('Content-Type', 'application/json');
+            } else if ((headers['Content-Type'] === 'application/json')) {
                 xhr.send(JSON.stringify(data));
+            } else {
+                xhr.send(data as FormData);
             }
         });
     }

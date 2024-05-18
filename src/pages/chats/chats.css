@@ -1,0 +1,37 @@
+.main {
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: 325px auto;
+}
+
+.main__left {
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: repeat(3, 50px) 1fr;
+    background-color: var(--color-medium-tint);
+    border-right: 1px solid var(--color-light-shade);
+
+    .button-wrapper {
+        padding: 10px;
+    }
+}
+
+.main__right {
+    height: 100dvh;
+}
+
+.main__right_empty {
+    background: var(--color-gradient);
+}
+
+.invite {
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+
+.invite__text {
+    font: var(--text-h1);
+    font-size: 34px;
+    color: var(--color-light);
+}

@@ -24,9 +24,9 @@ export class Button extends Block<ButtonProps> {
     render(): string {
         return `
             <button 
+                {{#if id}}id="{{id}}"{{/if}} 
                 type="{{type}}" 
-                id="{{id}}"
-                class="
+                    class="
                     mainButton mainButton_variant_{{variant}} 
                     mainButton_fill_{{fill}} 
                     {{#if align}}mainButton_align_{{align}}{{/if}} 

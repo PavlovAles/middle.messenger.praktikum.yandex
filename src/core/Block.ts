@@ -166,7 +166,6 @@ class Block<Props extends CommonProps> {
     }
 
     public getContent() {
-        // Хак, чтобы вызвать CDM только после добавления в DOM
         if (this.element?.parentNode?.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
             setTimeout(() => {
                 if (this.element?.parentNode?.nodeType !== Node.DOCUMENT_FRAGMENT_NODE) {

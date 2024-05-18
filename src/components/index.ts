@@ -3,6 +3,7 @@ export { Input } from './form/input';
 export { Button } from './button';
 export { Avatar } from './avatar';
 export { Form } from './form';
+export { ChatFeed } from './chatFeed';
 export { ChatList } from './chatList';
 export { ChatListItem } from './chatList/chatListItem';
 export { MessageList } from './messageList';

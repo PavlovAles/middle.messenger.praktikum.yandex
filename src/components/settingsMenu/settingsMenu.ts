@@ -25,6 +25,7 @@ export class SettingsMenu extends Block<SettingsMenuProps> {
 
         const SettingsModal = new Modal({
             Content: new ChatSettingsForm({ type: 'addUser' }),
+            onClose: this.handleModalClose.bind(this),
         });
 
         const SettingsTooltip = new Tooltip({
@@ -68,12 +69,17 @@ export class SettingsMenu extends Block<SettingsMenuProps> {
 
     handleModalClose() {
         this.children.SettingsModal.setProps({ open: false });
+        (this.children.SettingsModal.children.Content as ChatSettingsForm).reset();
     }
 
     protected componentDidMount(): void {
         const button = this.children.Trigger.getContent();
         if (!button) return;
         this.children.SettingsTooltip.setProps({ trigger: button });
+    }
+
+    protected componentWillUnmount(): void {
+        this.children.SettingsModal.setProps({ isModalOpen: false });
     }
 
     render() {

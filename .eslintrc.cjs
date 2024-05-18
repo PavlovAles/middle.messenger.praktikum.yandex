@@ -39,6 +39,9 @@ module.exports = {
         'quote-props': ['error', 'consistent-as-needed'],
         'operator-linebreak': ['error', 'after', { overrides: { '?': 'before', ':': 'before' } }],
         'prefer-destructuring': ['error', { object: false }],
+        'no-restricted-syntax': 'off',
+        'no-console': 'off',
+        'no-continue': 'off',
         'no-param-reassign': [
             2,
             { props: true, ignorePropertyModificationsFor: ['proxyTarget', 'acc'] },

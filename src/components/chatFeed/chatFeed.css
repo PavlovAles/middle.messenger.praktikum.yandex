@@ -1,0 +1,39 @@
+.feed {
+    height: 100dvh;
+    display: grid;
+    grid-template-rows: 60px 1fr 60px;
+
+    .feed__top {
+        padding: 0 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--color-light-shade);
+
+        .header {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            .header__avatar {
+                width: 34px;
+                height: 34px;
+            }
+
+            .header__text {
+                font: var(--text-h3);
+            }
+        }
+    }
+
+    .feed__bottom {
+        height: 48px;
+        padding: 0 10px;
+        display: flex;
+        gap: 10px;
+        justify-content: space-between;
+        align-items: center;
+        align-self: center;
+        border-top: 1px solid var(--color-light-shade);
+    }
+}

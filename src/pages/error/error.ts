@@ -1,5 +1,6 @@
 import { Button } from '../../components';
 import Block, { CommonProps } from '../../core/Block';
+import router from '../../utils/router';
 
 interface ErrorPageProps extends CommonProps {
     code: number;
@@ -16,6 +17,9 @@ export class ErrorPage extends Block<ErrorPageProps> {
                 fill: 'link',
                 text: 'Назад к чатам',
                 align: 'center',
+                events: {
+                    click: () => router.go('/messenger'),
+                },
             }),
         });
     }
