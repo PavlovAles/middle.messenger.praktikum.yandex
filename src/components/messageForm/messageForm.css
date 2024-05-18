@@ -1,5 +1,7 @@
 .message-form {
     flex-grow: 1;
+    display: flex;
+    gap: 8px;
 
     .message-form__input {
         height: 32px;

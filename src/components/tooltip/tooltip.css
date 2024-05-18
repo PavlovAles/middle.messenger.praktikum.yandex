@@ -1,5 +1,6 @@
 .tooltip {
     display: none;
+    z-index: 1000;
 }
 
 .tooltip.tooltip_active {

@@ -41,7 +41,16 @@
         padding-bottom: 25px;
         position: relative;
 
-        .changeAvatarForm__no-file-click {
+        .changeAvatarForm__error {
+            position: absolute;
+            font: var(--text-caption);
+            color: var(--color-danger);
+            left: 50%;
+            bottom: -4px;
+            transform: translateX(-50%);
+        }
+
+        .profileForm__error {
             position: absolute;
             font: var(--text-caption);
             color: var(--color-danger);

@@ -1,3 +1,3 @@
 import './chatListItem.css';
 
-export { ChatListItem } from './chatListItem';
+export { ChatListItemWidget as ChatListItem } from './chatListItem';

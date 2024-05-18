@@ -1,21 +1,22 @@
 import Block, { CommonProps, ComponentList } from '../../core/Block';
-import { Input } from './input';
+import { InputProps } from '../baseInput/baseInput';
 import { ButtonProps } from '../button/button';
-import { InputProps } from './input/input';
 
 export interface FormProps extends CommonProps {
     title: string;
     id: string;
     inputs?: ComponentList<InputProps>;
     buttons: ComponentList<ButtonProps>;
-    onSubmit?: (values: Record<string, string>[]) => void;
+    onSubmit: () => void;
     inputsKeys?: string[];
     buttonsKeys?: string[];
+    state?: {
+        loading: boolean;
+        error?: string;
+        success?: string;
+    };
 }
 export class Form extends Block<FormProps> {
-    private valid: boolean = false;
-    private values: Record<string, string>[] = [];
-
     init() {
         this.setProps({
             events: {
@@ -24,42 +25,24 @@ export class Form extends Block<FormProps> {
         });
     }
 
-    collectValuesAndValidate() {
-        let isFormValid = true;
-        const values: Record<string, string>[] = [];
-        Object.values(this.children).forEach((children) => {
-            if (children instanceof Input) {
-                values.push(children.value);
-                const valid = children.validate();
-                if (!valid) {
-                    isFormValid = false;
-                }
-            }
-        });
-        this.values = values;
-        this.valid = isFormValid;
-    }
-
     handleSubmit(e: Event) {
         e.preventDefault();
-        this.collectValuesAndValidate();
-        if (this.valid && this.props.onSubmit) {
-            this.props.onSubmit(this.values);
-        }
+        this.props.onSubmit();
     }
 
     render() {
         const inputs = this.props.inputsKeys?.map((key) => `{{{ ${key} }}}`).join('') || '';
         const buttons = this.props.buttonsKeys?.map((key) => `{{{ ${key} }}}`).join('') || '';
-
         return `
             <div class="shadow-box">
-                <form class="form" id="{{id}}">
+                <form class="form {{#if loading}}spinner{{/if}}" id="{{id}}">
                     <h2 class="form__title">{{title}}</h2>
                     <fieldset class="form__fieldset">
                         ${inputs}
                     </fieldset>
                     <div class="form__bottom">
+                        {{#unless error}}<div class="form__success">{{success}}</div>{{/unless}}
+                        <div class="form__error">{{error}}</div>
                         ${buttons}
                     </div>
                 </form>

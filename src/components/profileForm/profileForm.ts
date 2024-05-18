@@ -1,35 +1,38 @@
 import Block, { CommonProps } from '../../core/Block';
-import { User } from '../../types/user';
+import { connect } from '../../utils/connect';
 import { Button } from '../button';
 import { ProfileFormInput } from './profileFormInput';
 import { getProfilePageInputs } from './helpers';
+import { profileFormController, passwordFormController } from '../../controllers/formControllers';
+import authController from '../../controllers/authController';
+import userController from '../../controllers/userController';
 
+export type ProfileFormType = 'info' | 'changeInfo' | 'changePassword';
 export interface ProfileFormProps extends CommonProps {
-    user: User;
-    type: 'info' | 'changeInfo' | 'changePassword';
-    onSubmit?: (values: Record<string, string>[]) => void;
+    type: ProfileFormType;
+    onSubmit?: () => void;
     infoInputsKeys?: string[];
     changeInfoInputsKeys?: string[];
     changePasswordInputsKeys?: string[];
+    profileForm?: { error?: string; loading?: boolean; success?: string };
+    passwordForm?: { error?: string; loading?: boolean; success?: string };
+    success?: string;
 }
-export class ProfileForm extends Block<ProfileFormProps> {
-    private valid: boolean = false;
-    private values: Record<string, string>[] = [];
-
+class ProfileForm extends Block<ProfileFormProps> {
     constructor(props: ProfileFormProps) {
         super({
             ...props,
             infoInputs: {
                 Component: ProfileFormInput,
-                propList: getProfilePageInputs('info', props.user),
+                propList: getProfilePageInputs('info'),
             },
             changeInfoInputs: {
                 Component: ProfileFormInput,
-                propList: getProfilePageInputs('changeInfo', props.user),
+                propList: getProfilePageInputs('changeInfo'),
             },
             changePasswordInputs: {
                 Component: ProfileFormInput,
-                propList: getProfilePageInputs('changePassword', props.user),
+                propList: getProfilePageInputs('changePassword'),
             },
         });
     }
@@ -61,6 +64,9 @@ export class ProfileForm extends Block<ProfileFormProps> {
             fill: 'link',
             text: 'Выйти',
             align: 'left',
+            events: {
+                click: authController.signOut,
+            },
         });
         const SaveButton = new Button({
             type: 'submit',
@@ -86,77 +92,96 @@ export class ProfileForm extends Block<ProfileFormProps> {
     }
 
     handleChangeInfoButtonClick() {
-        this.props.type = 'changeInfo';
+        profileFormController.changeType('changeInfo');
     }
 
     handleChangePasswordButtonClick() {
-        this.props.type = 'changePassword';
+        profileFormController.changeType('changePassword');
     }
 
     handleSetUserAvatarButtonClick() {
         this.children.AvatarFormModal.setProps({ open: true });
     }
 
-    collectValuesAndValidate() {
-        let isFormValid = true;
-        const values: Record<string, string>[] = [];
-        const inputKeys =
-            (this.props.type === 'info' && this.props.infoInputsKeys) ||
-            (this.props.type === 'changeInfo' && this.props.changeInfoInputsKeys) ||
-            (this.props.type === 'changePassword' && this.props.changePasswordInputsKeys) ||
-            [];
-        Object.entries(this.children).forEach(([key, value]) => {
-            if (value instanceof ProfileFormInput && inputKeys.includes(key)) {
-                values.push(value.value);
-                const valid = value.validate();
-                if (!valid) {
-                    isFormValid = false;
-                }
-            }
-        });
-        this.values = values;
-        this.valid = isFormValid;
-    }
-
-    handleSubmit(e: Event) {
+    async handleSubmit(e: Event) {
         e.preventDefault();
-        this.collectValuesAndValidate();
-        if (this.valid && this.props.onSubmit) {
-            this.props.onSubmit(this.values);
+        if (this.props.type === 'changeInfo') {
+            const formIsValid = profileFormController.validateForm();
+            if (!formIsValid) return;
+            const fields = profileFormController.getFieldValues();
+            userController.changeUserProfile(fields);
+        } else if (this.props.type === 'changePassword') {
+            const formIsValid = passwordFormController.validateForm();
+            if (!formIsValid) return;
+            const fields = passwordFormController.getFieldValues();
+            userController.changeUserPassword(fields);
         }
     }
 
     render() {
+        const type = this.props.type;
+
         const inputs =
-            (this.props.type === 'info' && this.props.infoInputsKeys) ||
-            (this.props.type === 'changeInfo' && this.props.changeInfoInputsKeys) ||
-            (this.props.type === 'changePassword' && this.props.changePasswordInputsKeys) ||
+            (type === 'info' && this.props.infoInputsKeys) ||
+            (type === 'changeInfo' && this.props.changeInfoInputsKeys) ||
+            (type === 'changePassword' && this.props.changePasswordInputsKeys) ||
             [];
+
         const renderInputs = inputs
             .map((key) => `{{{${key}}}} <div class="separator-line"></div>`)
             .join('');
 
         const renderButtons =
-            this.props.type !== 'info'
+            type !== 'info'
                 ? '{{{ SaveButton }}}'
-                : (
-                    `
+                : `
                     {{{ ChangeInfoButton }}}
                     <div class="separator-line"></div>
                     {{{ ChangePasswordButton }}}
                     <div class="separator-line"></div>
                     {{{ LogoutButton }}}
-                    `
-                );
+                    `;
 
+        const profileForm = this.props.profileForm;
+        const passwordForm = this.props.passwordForm;
+        const [error, loading, success] = (type === 'changeInfo' && [
+            profileForm?.error,
+            profileForm?.loading,
+            profileForm?.success,
+        ]) ||
+            (type === 'changePassword' && [
+                passwordForm?.error,
+                passwordForm?.loading,
+                passwordForm?.success,
+            ]) || ['', false, ''];
+
+        console.log(passwordForm?.success);
         return `
-            <form class="prifileForm" id="profile-form">
-                <h1 class="prifileForm__title">{{user.display_name}}</h1>
+            <form class="profileForm ${loading ? 'spinner' : ''}" id="profile-form">
+                <h1 class="profileForm__title">{{user.display_name}}</h1>
                 ${renderInputs}
-                <div class="prifileForm_buttons">
+                <div class="profileForm_buttons">
+                    {{#unless error}}<div class="profileForm__success">${success || ''}</div>{{/unless}}
+                    <div class="profileForm__error">${error || ''}</div>
                     ${renderButtons}
                 </div>
             </form>
         `;
     }
 }
+
+const Connected = connect<ProfileFormProps>((state) => ({
+    type: state.profilePage.type,
+    profileForm: {
+        error: state.profileForm?.error,
+        loading: state.profileForm?.loading,
+        success: state.profileForm?.success,
+    },
+    passwordForm: {
+        error: state.passwordForm?.error,
+        loading: state.passwordForm?.loading,
+        success: state.passwordForm?.success,
+    },
+}))(ProfileForm);
+
+export { Connected as ProfileForm };

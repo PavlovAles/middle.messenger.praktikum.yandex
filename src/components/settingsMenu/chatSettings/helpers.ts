@@ -1,63 +1,40 @@
 import { ButtonProps } from '../../button/button';
-import { ChatSettingsFormType } from '../chatSettingsForm/chatSettingsForm';
 
-const getButtonProps = (props: Partial<ButtonProps>): ButtonProps => ({
-    type: 'button',
-    variant: 'primary',
-    fill: 'ghost',
-    align: 'left',
-    ...props,
-});
-
-const directChatSettings: (Partial<ButtonProps> & { id: ChatSettingsFormType })[] = [
+export const сhatSettingsButtons: ButtonProps[] = [
+    {
+        text: 'Изменить аватар',
+        icon: 'pencil',
+        id: 'changeGroupAvatar',
+        type: 'button',
+        variant: 'primary',
+        fill: 'ghost',
+        align: 'left',
+    },
     {
         text: 'Добавить пользователя',
         icon: 'add',
         id: 'addUser',
+        type: 'button',
+        variant: 'primary',
+        fill: 'ghost',
+        align: 'left',
     },
     {
         text: 'Удалить пользователя',
         icon: 'remove',
         id: 'removeUser',
+        type: 'button',
+        variant: 'primary',
+        fill: 'ghost',
+        align: 'left',
     },
     {
         text: 'Удалить чат',
         icon: 'remove',
         variant: 'danger',
         id: 'deleteChat',
+        type: 'button',
+        fill: 'ghost',
+        align: 'left',
     },
 ];
-
-const groupChatSettings: Partial<ButtonProps>[] = [
-    {
-        text: 'Изменить группу',
-        icon: 'arrow-right',
-        id: 'changeGroup',
-    },
-    ...directChatSettings,
-];
-
-const changeGroupSettings: (Partial<ButtonProps> & { id: ChatSettingsFormType })[] = [
-    {
-        text: 'Переименовать',
-        icon: 'pencil',
-        id: 'changeGroupName',
-    },
-    {
-        text: 'Изменить аватар',
-        icon: 'pencil',
-        id: 'changeGroupAvatar',
-    },
-];
-
-const chatSettingsButtonList = {
-    direct: directChatSettings,
-    group: groupChatSettings,
-    changeGroup: changeGroupSettings,
-};
-
-export const getChatSettingsButtonList = (
-    type: keyof typeof chatSettingsButtonList
-): ButtonProps[] => {
-    return chatSettingsButtonList[type].map(getButtonProps);
-};

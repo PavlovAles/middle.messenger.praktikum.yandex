@@ -11,7 +11,7 @@ export class ChatSearchForm extends Block<ChatSearchFormProps> {
 
     render() {
         return `
-            <form class="chat-search-form" id="chat-search">
+            <form class="chat-search-form {{#if loading}}spinner{{/if}}" id="chat-search">
                 <input class="chat-search-form__input" type="text" name="message" placeholder="Поиск" />
             </form>
         `;
