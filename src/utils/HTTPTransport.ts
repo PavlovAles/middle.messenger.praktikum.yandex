@@ -1,7 +1,7 @@
 import { API_HOST } from '../constants';
 import queryString from './queryString';
 
-const HTTP_METHODS = {
+export const HTTP_METHODS = {
     GET: 'GET',
     POST: 'POST',
     PUT: 'PUT',
