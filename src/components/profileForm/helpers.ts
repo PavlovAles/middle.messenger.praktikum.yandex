@@ -70,7 +70,7 @@ const infoInputs: InputProps[] = [
             profileFormController.setField(field);
         },
     },
-] as const;
+];
 
 const changePasswordInputs: InputProps[] = [
     {
@@ -104,7 +104,7 @@ const changePasswordInputs: InputProps[] = [
             passwordFormController.setField(field);
         },
     },
-] as const;
+];
 
 export const getProfilePageInputs = (
     type: 'info' | 'changeInfo' | 'changePassword',
