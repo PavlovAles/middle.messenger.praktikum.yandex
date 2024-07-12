@@ -4,8 +4,16 @@ module.exports = {
         es2021: true,
     },
     extends: ['airbnb/base', 'airbnb-typescript/base', 'plugin:@typescript-eslint/recommended'],
-    overrides: [],
-    ignorePatterns: ['dist', 'node_modules', '.eslintrc.cjs', 'vite.config.js'],
+    overrides: [
+        {
+            files: ['**/*.test.ts'],
+            rules: {
+                'no-unused-expressions': 'off',
+                '@typescript-eslint/no-unused-expressions': 'off',
+            },
+        },
+    ],
+    ignorePatterns: ['dist', 'node_modules', '.eslintrc.cjs', 'vite.config.js', 'mochaSetup.js'],
     parser: '@typescript-eslint/parser',
     parserOptions: {
         ecmaVersion: 'latest',

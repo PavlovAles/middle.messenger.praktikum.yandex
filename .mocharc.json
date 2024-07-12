@@ -1,0 +1,7 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "extentions": ["ts"],
+    "loader": "ts-node/esm",
+    "spec": "src/**/*.test.ts",
+    "require": ["./mochaSetup.js"]
+}
